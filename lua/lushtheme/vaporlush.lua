@@ -124,7 +124,7 @@ VaporLush = lightMode(LIGHTTHEME)
 local italic = useitalic(ITALIC)
 local underline = useunderline(UNDERLINE)
 
-local theme = lush(function(injected_functions)
+return lush(function(injected_functions)
       local sym = injected_functions.sym
       return {
             CursorLine   { bg = VaporLush.Primary.shade0                                                            },      
@@ -290,6 +290,3 @@ local theme = lush(function(injected_functions)
         }
     end
 )
-
--- Return our parsed theme for extension or use elsewhere.
-return theme
