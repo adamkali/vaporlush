@@ -16,7 +16,7 @@
 --                               I8
 
 
--- This is a vaporwave colorscheme that is built with lush neoim plugin
+-- This is a vaporwave colorscheme that is built with lush neovim plugin
 -- 
 -- Adam Kalinowski
 -- adam@legalautomationsystems.com
@@ -133,7 +133,7 @@ return lush(function(injected_functions)
             DiffChange   { bg = VaporLush.Quintary.shade3,      fg = VaporLush.Secondary.shade2                     },      -- Diff mode: Changed line |diff.txt|
             DiffDelete   { bg = VaporLush.Primary.shade1,       fg = VaporLush.Quartenary.shade2                    },      -- Diff mode: Deleted line |diff.txt|
             DiffText     { bg = VaporLush.Quartenary.shade2,    fg = VaporLush.Tertiary.shade3,     gui=italic      },      
-            EndOfBuffer  {  bg = VaporLush.Primary.shade3,      fg = VaporLush.Secondary.shade0,    gui=italic      },      
+            EndOfBuffer  {  bg = VaporLush.Primary.shade0,      fg = VaporLush.Secondary.shade0,    gui=italic      },      
             VertSplit    {  bg = VaporLush.Primary.shade0,      fg = VaporLush.Secondary.shade0                     },      -- Column separating vertically split windows
             Folded       { bg = VaporLush.Primary.shade0,       fg = VaporLush.Secondary.shade2                     },      -- Line used for closed folds
             FoldColumn   { bg = Folded.bg,                      fg = Folded.fg                                      },      -- 'foldcolumn'
