@@ -25,9 +25,15 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+local TRANSPARENT = false
 
+local function isTransparent()
+    if TRANSPARENT then
+        return None 
+    else return hsl(250, 80, 8) end
+end
 local VaporLush = {
-    Background = hsl(250, 80, 8),
+    Background = NONE,
     Primary = {
         shade0 = hsl(250, 100, 20),
         shade1 = hsl(250, 100, 30),
@@ -47,10 +53,10 @@ local VaporLush = {
         shade3 = hsl(50, 100, 90),
     },
     Quartenary = {
-        shade0 = hsl(275, 90, 20),
-        shade1 = hsl(275, 90, 40),
-        shade2 = hsl(275, 90, 60),
-        shade3 = hsl(275, 90, 80),
+        shade0 = hsl(0, 90, 20),
+        shade1 = hsl(0, 90, 40),
+        shade2 = hsl(0, 90, 60),
+        shade3 = hsl(0, 90, 80),
     },
     Quintary = {
         shade0 = hsl(180, 100, 25),
@@ -110,7 +116,7 @@ local function lightMode(activate)
                 shade3 = hsl(180, 100, 25),
             },
             Quintary = {
-                shade0 = hsl(275, 100, 85),
+                shade0 = hsl(10, 100, 85),
                 shade1 = hsl(275, 100, 75),
                 shade2 = hsl(275, 100, 65),
                 shade3 = hsl(275, 100, 55),
@@ -144,7 +150,7 @@ return lush(function(injected_functions)
           LineNr       { bg = VaporLush.Background,       fg = VaporLush.Secondary.shade3                     },      
           CursorLineNr {  bg = VaporLush.Primary.shade1,      fg = VaporLush.Quintary.shade1                      },      
           Normal       { bg = VaporLush.Background,       fg = VaporLush.Secondary.shade3                     },      -- Normal text
-          Pmenu        { Normal                                                                                   },      -- Popup menu: Normal item.
+          Pmenu        { SignColumn                                                                                   },      -- Popup menu: Normal item.
           PmenuSel     { bg = VaporLush.Background,       fg = VaporLush.Tertiary.shade3                      },      -- Popup menu: Selected item.
           PmenuSbar    { bg = VaporLush.Primary.shade3,       fg = VaporLush.Quintary.shade0                      },      -- Popup menu: Scrollbar.
           PmenuThumb   { bg = VaporLush.Primary.shade3,       fg = VaporLush.Quintary.shade1                      },      -- Popup menu: Thumb of the scrollbar.
@@ -172,20 +178,20 @@ return lush(function(injected_functions)
               Define         { PreProc                                                                                },      --   Preprocessor #define
               Macro          { PreProc                                                                                },      --   Same as Define
               PreCondit      { PreProc                                                                                },      --   Preprocessor #if, #else, #endif, etc.
-              Type           { bg = Normal.bg,                    fg = VaporLush.Quintary.shade0,    gui=italic      },      -- (*) int, long, char, etc.
+              Type           { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,    gui=italic      },      -- (*) int, long, char, etc.
               StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
-              Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,   gui=italic      },      --   struct, union, enum, etc.
+              Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade2,   gui=italic      },      --   struct, union, enum, etc.
               Typedef        { Structure                                                                              },      --   A typedef
               Special        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade3                      },      -- (*) Any special symbol
               SpecialChar    { Special                                                                                },      --   Special character in a constant
               Tag            { Special                                                                                },      --   You can use CTRL-] on this
-              Delimiter      { Type                                                                                },      --   Character that needs attention
+              Delimiter      { Statement                                                                                },      --   Character that needs attention
               SpecialComment { Special,                                                               gui = italic    },      
               Debug          { SpecialComment                                                                         },      --   Debugging statements
               Underlined     { bg= Normal.bg,                     fg= VaporLush.Secondary.shade1,     gui = underline },      -- Text that stands out, HTML links
               Ignore         { bg= VaporLush.Tertiary.shade0,     fg= VaporLush.Quartenary.shade2,    gui = italic    },      
               Error          { bg= VaporLush.Secondary.shade2,     fg= VaporLush.Quintary.shade3                      },      -- Any erroneous construct
-              Todo           { bg= VaporLush.Quartenary.shade2,   fg= VaporLush.Quintary.shade3,      gui = underline }, 
+              Todo           { bg= VaporLush.Primary.shade2,   fg= VaporLush.Quintary.shade3,       }, 
 
 
               sym"@text.literal"      { Comment }, -- Comment
@@ -194,6 +200,9 @@ return lush(function(injected_functions)
               sym"@text.uri"          { Underlined }, -- Underlined
               sym"@text.underline"    { Underlined }, -- Underlined
               sym"@text.todo"         { Todo }, -- Todo
+              sym"@text.warn"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Primary.shade1,       }, -- TODO:
+              sym"@text.fixme"        {  bg= VaporLush.Secondary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- 
+              sym"@text.xxx"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- Todo
               sym"@comment"           { Comment }, -- Comment
               sym"@punctuation"       { Delimiter }, -- Delimiter
               sym"@constant"          { Constant }, -- Constant
