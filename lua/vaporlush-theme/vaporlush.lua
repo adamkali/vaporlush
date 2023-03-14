@@ -200,9 +200,9 @@ return lush(function(injected_functions)
               sym"@text.uri"          { Underlined }, -- Underlined
               sym"@text.underline"    { Underlined }, -- Underlined
               sym"@text.todo"         { Todo }, -- Todo
-              sym"@text.warn"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Primary.shade1,       }, -- TODO:
-              sym"@text.fixme"        {  bg= VaporLush.Secondary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- 
-              sym"@text.xxx"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- Todo
+              sym"@text.warning"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Primary.shade1,       }, -- TODO:
+              sym"@text.fixme"        {  bg= VaporLush.Secondary.shade0,   fg= VaporLush.Quintary.shade1,      }, -- WARNING(adam):
+              sym"@text.xxx"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- XXX:
               sym"@comment"           { Comment }, -- Comment
               sym"@punctuation"       { Delimiter }, -- Delimiter
               sym"@constant"          { Constant }, -- Constant
