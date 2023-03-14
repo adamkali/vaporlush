@@ -182,7 +182,7 @@ return lush(function(injected_functions)
               StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
               Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade2,   gui=italic      },      --   struct, union, enum, etc.
               Typedef        { Structure                                                                              },      --   A typedef
-              Special        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade3                      },      -- (*) Any special symbol
+              Special        { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade3                      },      -- (*) Any special symbol
               SpecialChar    { Special                                                                                },      --   Special character in a constant
               Tag            { Special                                                                                },      --   You can use CTRL-] on this
               Delimiter      { Statement                                                                                },      --   Character that needs attention
@@ -199,10 +199,10 @@ return lush(function(injected_functions)
               sym"@text.title"        { Identifier }, -- Title
               sym"@text.uri"          { Underlined }, -- Underlined
               sym"@text.underline"    { Underlined }, -- Underlined
-              sym"@text.todo"         { Todo }, -- Todo
-              sym"@text.warning"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Primary.shade1,       }, -- TODO:
-              sym"@text.fixme"        {  bg= VaporLush.Secondary.shade0,   fg= VaporLush.Quintary.shade1,      }, -- WARNING(adam):
-              sym"@text.xxx"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade3,      }, -- XXX:
+              sym"@text.todo"         { Todo }, -- BUG:
+              sym"@text.warning"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Secondary.shade1,       }, -- TODO:
+              sym"@text.note"        {  bg= VaporLush.Secondary.shade0,   fg= VaporLush.Tertiary.shade1,      }, -- WARNING(adam):
+              sym"@text.danger"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade2,      }, -- FIXME:
               sym"@comment"           { Comment }, -- Comment
               sym"@punctuation"       { Delimiter }, -- Delimiter
               sym"@constant"          { Constant }, -- Constant
