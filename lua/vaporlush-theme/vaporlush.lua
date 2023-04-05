@@ -164,16 +164,16 @@ return lush(function(injected_functions)
           Number       { bg = Normal.bg,                      fg = Constant.fg                                    },      --   A number constant: 234, 0xff
           Boolean      { Constant,                                                                gui=italic      },      --   A boolean constant: TRUE, false
           Float        { Number                                                                                   },      --   A floating point constant: 2.3e10
-          Identifier   { bg = Nomal.bg,                       fg=VaporLush.Secondary.shade1,      gui=italic          },      -- (*) Any variable name
+          Identifier   { bg = Nomal.bg,                       fg=VaporLush.Secondary.shade2          },      -- (*) Any variable name
           Function     { bg = Nomal.bg,                       fg=VaporLush.Tertiary.shade2,      gui="italic, bold"      },      
           Statement      { bg = VaporLush.Background,     fg = VaporLush.Primary.shade1,      gui=""          },      -- (*) Any statement
           Conditional    { Statement                                                                              },      --   if, then, else, endif, switch, etc.
           Repeat         { Statement,                                                             gui=italic      },      --   for, do, while, etc.
-              Label          { bg=VaporLush.Background,       fg=VaporLush.Primary.shade2, gui=italic      },      --   case, default, etc.
+              Label          { bg=VaporLush.Background,       fg=VaporLush.Primary.shade2      },      --   case, default, etc.
               Operator       { Label                                                                                  },      --   "sizeof", "+", "*", etc.
               Keyword        { Label                                                                                  },      --   any other keyword
               Exception      { Label                                                                                 },      --   try, catch, throw
-              PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade2,     gui=italic      },      -- (*) Generic Preprocessor
+              PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade0,     gui=italic      },      -- (*) Generic Preprocessor
               Include        { PreProc                                                                                },      --   Preprocessor #include
               Define         { PreProc                                                                                },      --   Preprocessor #define
               Macro          { PreProc                                                                                },      --   Same as Define
@@ -216,7 +216,7 @@ return lush(function(injected_functions)
               sym"@character"         { Character }, -- Character
               sym"@character.special" { SpecialChar }, -- SpecialChar
               sym"@number"            { Number }, -- Number
-              sym"@boolean"           { Boolean }, -- Boolean
+              sym"@boolean"           { Boolean, gui="bold" }, -- Boolean
               sym"@float"             { Float }, -- Float
               sym"@function"          { Function, gui="bold" }, -- Function
               sym"@function.builtin"  { Special }, -- Special
@@ -232,7 +232,7 @@ return lush(function(injected_functions)
               sym"@operator"          { Operator }, -- Operator
               sym"@keyword"           { Keyword }, -- Keyword
               sym"@exception"         { Exception }, -- Exception
-              sym"@variable"          { bg=Normal.bg, fg=VaporLush.Primary.shade3 }, -- Identifier
+              sym"@variable"          { bg=Normal.bg, fg=VaporLush.Quintary.shade1 }, -- Identifier
               sym"@type"              { Type }, -- Type
               sym"@type.definition"   { Typedef }, -- Typedef
               sym"@storageclass"      { StorageClass }, -- StorageClass
