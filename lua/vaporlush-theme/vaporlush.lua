@@ -164,8 +164,8 @@ return lush(function(injected_functions)
           Number       { bg = Normal.bg,                      fg = Constant.fg                                    },      --   A number constant: 234, 0xff
           Boolean      { Constant,                                                                gui=italic      },      --   A boolean constant: TRUE, false
           Float        { Number                                                                                   },      --   A floating point constant: 2.3e10
-          Identifier   { bg = Nomal.bg,                       fg=VaporLush.Secondary.shade1,      gui=""          },      -- (*) Any variable name
-          Function     { bg = Nomal.bg,                       fg=VaporLush.Tertiary.shade2,      gui=italic      },      
+          Identifier   { bg = Nomal.bg,                       fg=VaporLush.Secondary.shade1,      gui=italic          },      -- (*) Any variable name
+          Function     { bg = Nomal.bg,                       fg=VaporLush.Tertiary.shade2,      gui="italic, bold"      },      
           Statement      { bg = VaporLush.Background,     fg = VaporLush.Primary.shade1,      gui=""          },      -- (*) Any statement
           Conditional    { Statement                                                                              },      --   if, then, else, endif, switch, etc.
           Repeat         { Statement,                                                             gui=italic      },      --   for, do, while, etc.
@@ -180,7 +180,7 @@ return lush(function(injected_functions)
               PreCondit      { PreProc                                                                                },      --   Preprocessor #if, #else, #endif, etc.
               Type           { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,    gui=italic      },      -- (*) int, long, char, etc.
               StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
-              Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade2,   gui=italic      },      --   struct, union, enum, etc.
+              Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade2,   gui="bold, italic"      },      --   struct, union, enum, etc.
               Typedef        { Structure                                                                              },      --   A typedef
               Special        { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade3                      },      -- (*) Any special symbol
               SpecialChar    { Special                                                                                },      --   Special character in a constant
@@ -218,7 +218,7 @@ return lush(function(injected_functions)
               sym"@number"            { Number }, -- Number
               sym"@boolean"           { Boolean }, -- Boolean
               sym"@float"             { Float }, -- Float
-              sym"@function"          { Function }, -- Function
+              sym"@function"          { Function, gui="bold" }, -- Function
               sym"@function.builtin"  { Special }, -- Special
               sym"@function.macro"    { Macro }, -- Macro
               sym"@parameter"         { Identifier }, -- Identifier
