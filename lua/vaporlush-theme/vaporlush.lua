@@ -33,12 +33,12 @@ local function isTransparent()
     else return hsl(250, 80, 8) end
 end
 local VaporLush = {
-    Background = hsl(250,40,20),
+    Background = hsl(250,50,15),
     Primary = {
-        shade0 = hsl(250,75, 25),
-        shade1 = hsl(250,75, 35),
-        shade2 = hsl(250,75, 55),
-        shade3 = hsl(250,75, 85),
+        shade0 = hsl(250,100, 25),
+        shade1 = hsl(250,100, 35),
+        shade2 = hsl(250,100, 55),
+        shade3 = hsl(250,100, 85),
     },
     Secondary = {
         shade0 = hsl(300, 75, 20),
@@ -53,10 +53,10 @@ local VaporLush = {
         shade3 = hsl(50, 75, 70),
     },
     Quartenary = {
-        shade0 = hsl(0, 75, 20),
-        shade1 = hsl(0, 75, 40),
-        shade2 = hsl(0, 75, 60),
-        shade3 = hsl(0, 75, 80),
+        shade0 = hsl(0, 100, 20),
+        shade1 = hsl(0, 100, 40),
+        shade2 = hsl(0, 100, 60),
+        shade3 = hsl(0, 100, 80),
     },
     Quintary = {
         shade0 = hsl(170, 100, 20),
