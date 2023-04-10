@@ -33,36 +33,36 @@ local function isTransparent()
     else return hsl(250, 80, 8) end
 end
 local VaporLush = {
-    Background = NONE,
+    Background = hsl(250,40,20),
     Primary = {
-        shade0 = hsl(250, 100, 20),
-        shade1 = hsl(250, 100, 30),
-        shade2 = hsl(250, 100, 50),
-        shade3 = hsl(250, 100, 80),
+        shade0 = hsl(250,75, 25),
+        shade1 = hsl(250,75, 35),
+        shade2 = hsl(250,75, 55),
+        shade3 = hsl(250,75, 85),
     },
     Secondary = {
-        shade0 = hsl(300, 100, 20),
-        shade1 = hsl(300, 100, 40),
-        shade2 = hsl(300, 100, 60),
-        shade3 = hsl(300, 100, 80),
+        shade0 = hsl(300, 75, 20),
+        shade1 = hsl(300, 75, 40),
+        shade2 = hsl(300, 75, 60),
+        shade3 = hsl(300, 75, 80),
     },
     Tertiary = {
-        shade0 = hsl(50, 100, 40),
-        shade1 = hsl(50, 100, 50),
-        shade2 = hsl(50, 100, 70),
-        shade3 = hsl(50, 100, 90),
+        shade0 = hsl(50, 75, 40),
+        shade1 = hsl(50, 75, 50),
+        shade2 = hsl(50, 75, 60),
+        shade3 = hsl(50, 75, 70),
     },
     Quartenary = {
-        shade0 = hsl(0, 90, 20),
-        shade1 = hsl(0, 90, 40),
-        shade2 = hsl(0, 90, 60),
-        shade3 = hsl(0, 90, 80),
+        shade0 = hsl(0, 75, 20),
+        shade1 = hsl(0, 75, 40),
+        shade2 = hsl(0, 75, 60),
+        shade3 = hsl(0, 75, 80),
     },
     Quintary = {
-        shade0 = hsl(180, 100, 25),
-        shade1 = hsl(180, 100, 40),
-        shade2 = hsl(180, 100, 60),
-        shade3 = hsl(180, 100, 90),
+        shade0 = hsl(170, 100, 20),
+        shade1 = hsl(170, 100, 40),
+        shade2 = hsl(170, 100, 60),
+        shade3 = hsl(170, 100, 80),
     }
 }
 
