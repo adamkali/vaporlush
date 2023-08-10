@@ -33,7 +33,7 @@ local function isTransparent()
     else return hsl(250, 80, 8) end
 end
 local VaporLush = {
-    Background = hsl(250,50,15),
+    Background = hsl(250,40,20),
     Primary = {
         shade0 = hsl(250,100, 25),
         shade1 = hsl(250,100, 35),
@@ -53,16 +53,16 @@ local VaporLush = {
         shade3 = hsl(50, 75, 70),
     },
     Quartenary = {
-        shade0 = hsl(0, 100, 20),
-        shade1 = hsl(0, 100, 40),
-        shade2 = hsl(0, 100, 60),
-        shade3 = hsl(0, 100, 80),
-    },
-    Quintary = {
         shade0 = hsl(170, 100, 20),
         shade1 = hsl(170, 100, 40),
         shade2 = hsl(170, 100, 60),
         shade3 = hsl(170, 100, 80),
+    },
+    Quintary = {
+        shade0 = hsl(0, 100, 20),
+        shade1 = hsl(0, 100, 40),
+        shade2 = hsl(0, 100, 60),
+        shade3 = hsl(0, 100, 80),
     }
 }
 
@@ -157,9 +157,9 @@ return lush(function(injected_functions)
           Question     { bg = VaporLush.Secondary.shade0,     fg = VaporLush.Secondary.shade2                     },      -- |hit-enter| prompt and yes/no questions
           Search       { bg = VaporLush.Tertiary.shade3,      fg = VaporLush.Background                       }, 
           Visual       { bg = VaporLush.Secondary.shade0,     fg = VaporLush.Tertiary.shade3                      },      -- Visual mode selection
-          Comment      { bg = VaporLush.Background,       fg = VaporLush.Quintary.shade3,     gui=italic      },      -- Any comment
-          Constant     { bg = Normal.bg,                      fg = VaporLush.Quintary.shade2                      },      -- (*) Any constant
-          String       { bg = Normal.bg,                      fg = VaporLush.Quintary.shade1                      },      --   A string constant: "this is a string"
+          Comment      { bg = VaporLush.Background,       fg = VaporLush.Secondary.shade3,     gui=italic      },      -- Any comment
+          Constant     { bg = Normal.bg,                      fg = VaporLush.Quartenary.shade2                      },      -- (*) Any constant
+          String       { bg = Normal.bg,                      fg = VaporLush.Quartenary.shade0                      },      --   A string constant: "this is a string"
           Character    { String                                                                                   },      --   A character constant: 'c', '\n'
           Number       { bg = Normal.bg,                      fg = Constant.fg                                    },      --   A number constant: 234, 0xff
           Boolean      { Constant,                                                                gui=italic      },      --   A boolean constant: TRUE, false
@@ -180,7 +180,7 @@ return lush(function(injected_functions)
               PreCondit      { PreProc                                                                                },      --   Preprocessor #if, #else, #endif, etc.
               Type           { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,    gui=italic      },      -- (*) int, long, char, etc.
               StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
-              Structure      { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade2,   gui="bold, italic"      },      --   struct, union, enum, etc.
+              Structure      { bg = Normal.bg,                    fg = VaporLush.Quintary.shade2,   gui="bold, italic"      },      --   struct, union, enum, etc.
               Typedef        { Structure                                                                              },      --   A typedef
               Special        { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade3                      },      -- (*) Any special symbol
               SpecialChar    { Special                                                                                },      --   Special character in a constant
@@ -190,8 +190,8 @@ return lush(function(injected_functions)
               Debug          { SpecialComment                                                                         },      --   Debugging statements
               Underlined     { bg= Normal.bg,                     fg= VaporLush.Secondary.shade1,     gui = underline },      -- Text that stands out, HTML links
               Ignore         { bg= VaporLush.Tertiary.shade0,     fg= VaporLush.Quartenary.shade2,    gui = italic    },      
-              Error          { bg= VaporLush.Secondary.shade2,     fg= VaporLush.Quintary.shade3                      },      -- Any erroneous construct
-              Todo           { bg= VaporLush.Primary.shade2,   fg= VaporLush.Quintary.shade3,       }, 
+              Error          { bg= VaporLush.Secondary.shade2,     fg= VaporLush.Quartenary.shade3                      },      -- Any erroneous construct
+              Todo           { bg= VaporLush.Primary.shade2,   fg= VaporLush.Quartenary.shade3,       }, 
 
 
               sym"@text.literal"      { Comment }, -- Comment
@@ -225,7 +225,7 @@ return lush(function(injected_functions)
               sym"@method"            { Function }, -- Function
               sym"@field"             { Identifier }, -- Identifier
               sym"@property"          { Identifier }, -- Identifier
-              sym"@constructor"       { bg=Normal.bg,  fg=VaporLush.Quintary.shade0 }, -- Special
+              sym"@constructor"       { bg=Normal.bg,  fg=VaporLush.Quartenary.shade0 }, -- Special
               sym"@conditional"       { Conditional }, -- Conditional
               sym"@repeat"            { Repeat }, -- Repeat
               sym"@label"             { Label }, -- Label
