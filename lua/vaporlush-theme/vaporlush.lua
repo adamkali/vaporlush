@@ -33,7 +33,7 @@ local function isTransparent()
     else return hsl(250, 80, 8) end
 end
 local VaporLush = {
-    Background = hsl(250,40,20),
+    Background = hsl(250,27,15),
     Primary = {
         shade0 = hsl(250,100, 25),
         shade1 = hsl(250,100, 35),
