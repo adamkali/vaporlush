@@ -47,10 +47,10 @@ local VaporLush = {
         shade3 = hsl(300, 75, 80),
     },
     Tertiary = {
-        shade0 = hsl(50, 75, 40),
-        shade1 = hsl(50, 75, 50),
-        shade2 = hsl(50, 75, 60),
-        shade3 = hsl(50, 75, 70),
+        shade0 = hsl(330, 55, 20),
+        shade1 = hsl(330, 55, 35),
+        shade2 = hsl(330, 55, 50),
+        shade3 = hsl(330, 55, 65),
     },
     Quartenary = {
         shade0 = hsl(170, 100, 20),
@@ -59,10 +59,10 @@ local VaporLush = {
         shade3 = hsl(170, 100, 80),
     },
     Quintary = {
-        shade0 = hsl(0, 100, 20),
-        shade1 = hsl(0, 100, 40),
-        shade2 = hsl(0, 100, 60),
-        shade3 = hsl(0, 100, 80),
+        shade0 = hsl(220, 70, 20),
+        shade1 = hsl(220, 70, 40),
+        shade2 = hsl(220, 70, 60),
+        shade3 = hsl(220, 70, 80),
     }
 }
 
@@ -116,7 +116,7 @@ local function lightMode(activate)
                 shade3 = hsl(180, 100, 25),
             },
             Quintary = {
-                shade0 = hsl(10, 100, 85),
+                shade0 = hsl(275, 100, 85),
                 shade1 = hsl(275, 100, 75),
                 shade2 = hsl(275, 100, 65),
                 shade3 = hsl(275, 100, 55),
@@ -232,7 +232,7 @@ return lush(function(injected_functions)
               sym"@operator"          { Operator }, -- Operator
               sym"@keyword"           { Keyword }, -- Keyword
               sym"@exception"         { Exception }, -- Exception
-              sym"@variable"          { bg=Normal.bg, fg=VaporLush.Quintary.shade1 }, -- Identifier
+              sym"@variable"          { bg=Normal.bg, fg=VaporLush.Quintary.shade2 }, -- Identifier
               sym"@type"              { Type }, -- Type
               sym"@type.definition"   { Typedef }, -- Typedef
               sym"@storageclass"      { StorageClass }, -- StorageClass
