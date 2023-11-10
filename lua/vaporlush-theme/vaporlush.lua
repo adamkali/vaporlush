@@ -173,7 +173,7 @@ return lush(function(injected_functions)
               Operator       { Label                                                                                  },      --   "sizeof", "+", "*", etc.
               Keyword        { Label                                                                                  },      --   any other keyword
               Exception      { Label                                                                                 },      --   try, catch, throw
-              PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade0,     gui=italic      },      -- (*) Generic Preprocessor
+              PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade1,     gui=italic      },      -- (*) Generic Preprocessor
               Include        { PreProc                                                                                },      --   Preprocessor #include
               Define         { PreProc                                                                                },      --   Preprocessor #define
               Macro          { PreProc                                                                                },      --   Same as Define
