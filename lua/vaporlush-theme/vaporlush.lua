@@ -159,7 +159,7 @@ return lush(function(injected_functions)
           Visual       { bg = VaporLush.Secondary.shade0,     fg = VaporLush.Tertiary.shade3                      },      -- Visual mode selection
           Comment      { bg = VaporLush.Background,       fg = VaporLush.Secondary.shade3,     gui=italic      },      -- Any comment
           Constant     { bg = Normal.bg,                      fg = VaporLush.Quartenary.shade2                      },      -- (*) Any constant
-          String       { bg = Normal.bg,                      fg = VaporLush.Quartenary.shade0                      },      --   A string constant: "this is a string"
+          String       { bg = Normal.bg,                      fg = VaporLush.Quintary.shade3                      },      --   A string constant: "this is a string"
           Character    { String                                                                                   },      --   A character constant: 'c', '\n'
           Number       { bg = Normal.bg,                      fg = Constant.fg                                    },      --   A number constant: 234, 0xff
           Boolean      { Constant,                                                                gui=italic      },      --   A boolean constant: TRUE, false
