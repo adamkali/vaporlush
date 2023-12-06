@@ -1,6 +1,6 @@
 # Vaporlush
 
-A vaporwave inspired Neovim theme made with made with [lush.nvim](https://github.com/rktjmp/lush.nvim)
+A vaporwave inspired Neovim theme made with [lush.nvim](https://github.com/rktjmp/lush.nvim)
 
 ## Supports:
 - treesitter
