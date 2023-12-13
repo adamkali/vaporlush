@@ -169,79 +169,89 @@ return lush(function(injected_functions)
           Statement      { bg = VaporLush.Background,     fg = VaporLush.Primary.shade1,      gui=""          },      -- (*) Any statement
           Conditional    { Statement                                                                              },      --   if, then, else, endif, switch, etc.
           Repeat         { Statement,                                                             gui=italic      },      --   for, do, while, etc.
-              Label          { bg=VaporLush.Background,       fg=VaporLush.Primary.shade2      },      --   case, default, etc.
-              Operator       { Label                                                                                  },      --   "sizeof", "+", "*", etc.
-              Keyword        { Label                                                                                  },      --   any other keyword
-              Exception      { Label                                                                                 },      --   try, catch, throw
-              PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade1,     gui=italic      },      -- (*) Generic Preprocessor
-              Include        { PreProc                                                                                },      --   Preprocessor #include
-              Define         { PreProc                                                                                },      --   Preprocessor #define
-              Macro          { PreProc                                                                                },      --   Same as Define
-              PreCondit      { PreProc                                                                                },      --   Preprocessor #if, #else, #endif, etc.
-              Type           { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,    gui=italic      },      -- (*) int, long, char, etc.
-              StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
-              Structure      { bg = Normal.bg,                    fg = VaporLush.Quintary.shade2,   gui="bold, italic"      },      --   struct, union, enum, etc.
-              Typedef        { Structure                                                                              },      --   A typedef
-              Special        { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade3                      },      -- (*) Any special symbol
-              SpecialChar    { Special                                                                                },      --   Special character in a constant
-              Tag            { Special                                                                                },      --   You can use CTRL-] on this
-              Delimiter      { Statement                                                                                },      --   Character that needs attention
-              SpecialComment { Special,                                                               gui = italic    },      
-              Debug          { SpecialComment                                                                         },      --   Debugging statements
-              Underlined     { bg= Normal.bg,                     fg= VaporLush.Secondary.shade1,     gui = underline },      -- Text that stands out, HTML links
-              Ignore         { bg= VaporLush.Tertiary.shade0,     fg= VaporLush.Quartenary.shade2,    gui = italic    },      
-              Error          { bg= VaporLush.Secondary.shade2,     fg= VaporLush.Quartenary.shade3                      },      -- Any erroneous construct
-              Todo           { bg= VaporLush.Primary.shade2,   fg= VaporLush.Quartenary.shade3,       }, 
+          Label          { bg=VaporLush.Background,       fg=VaporLush.Primary.shade2      },      --   case, default, etc.
+          Operator       { Label                                                                                  },      --   "sizeof", "+", "*", etc.
+          Keyword        { Label                                                                                  },      --   any other keyword
+          Exception      { Label                                                                                 },      --   try, catch, throw
+          PreProc        { bg = Normal.bg,                    fg = VaporLush.Tertiary.shade1,     gui=italic      },      -- (*) Generic Preprocessor
+          Include        { PreProc                                                                                },      --   Preprocessor #include
+          Define         { PreProc                                                                                },      --   Preprocessor #define
+          Macro          { PreProc                                                                                },      --   Same as Define
+          PreCondit      { PreProc                                                                                },      --   Preprocessor #if, #else, #endif, etc.
+          Type           { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade1,    gui=italic      },      -- (*) int, long, char, etc.
+          StorageClass   { Type,                                                                                  },      --   static, register, volatile, etc.
+          Structure      { bg = Normal.bg,                    fg = VaporLush.Quintary.shade2,   gui="bold, italic"      },      --   struct, union, enum, etc.
+          Typedef        { Structure                                                                              },      --   A typedef
+          Special        { bg = Normal.bg,                    fg = VaporLush.Quartenary.shade3                      },      -- (*) Any special symbol
+          SpecialChar    { Special                                                                                },      --   Special character in a constant
+          Tag            { Special                                                                                },      --   You can use CTRL-] on this
+          Delimiter      { Statement                                                                                },      --   Character that needs attention
+          SpecialComment { Special,                                                               gui = italic    },      
+          Debug          { SpecialComment                                                                         },      --   Debugging statements
+          Underlined     { bg= Normal.bg,                     fg= VaporLush.Secondary.shade1,     gui = underline },      -- Text that stands out, HTML links
+          Ignore         { bg= VaporLush.Tertiary.shade0,     fg= VaporLush.Quartenary.shade2,    gui = italic    },      
+          Error          { bg= VaporLush.Secondary.shade2,     fg= VaporLush.Quartenary.shade3                      },      -- Any erroneous construct
+          Todo           { bg= VaporLush.Primary.shade2,   fg= VaporLush.Quartenary.shade3,       }, 
+
+          -- Obsidian 
+          ObsidianTodo = { ToDo },
+          ObsidianDone = { DiffDelete },
+          ObsidianRightArrow = { CursorLineNr },
+          ObsidianTilde ={ Ignore },
+          ObsidianRefText = { underline = true, fg = "#c792ea" },
+          ObsidianExtLinkIcon = { fg = "#c792ea" },
+          ObsidianTag = { Label },
+          ObsidianHighlightText = { SpecialComment},
 
 
-              sym"@text.literal"      { Comment }, -- Comment
-              sym"@text.reference"    { Identifier }, -- Identifier
-              sym"@text.title"        { Identifier }, -- Title
-              sym"@text.uri"          { Underlined }, -- Underlined
-              sym"@text.underline"    { Underlined }, -- Underlined
-              sym"@text.todo"         { Todo }, -- BUG:
-              sym"@text.warning"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Secondary.shade1,       }, -- TODO:
-              sym"@text.note"        {  bg= VaporLush.Secondary.shade0,   fg= VaporLush.Tertiary.shade1,      }, -- WARNING(adam):
-              sym"@text.danger"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade2,      }, -- FIXME:
-              sym"@comment"           { Comment }, -- Comment
-              sym"@punctuation"       { Delimiter }, -- Delimiter
-              sym"@constant"          { Constant }, -- Constant
-              sym"@constant.builtin"  { Special }, -- Special
-              sym"@constant.macro"    { Define }, -- Define
-              sym"@define"            { Define }, -- Define
-              sym"@macro"             { Define }, -- Macro
-              sym"@string"            { String }, -- String
-              sym"@string.escape"     { SpecialChar }, -- SpecialChar
-              sym"@string.special"    { SpecialChar }, -- SpecialChar
-              sym"@character"         { Character }, -- Character
-              sym"@character.special" { SpecialChar }, -- SpecialChar
-              sym"@number"            { Number }, -- Number
-              sym"@boolean"           { Boolean, gui="bold" }, -- Boolean
-              sym"@float"             { Float }, -- Float
-              sym"@function"          { Function, gui="bold" }, -- Function
-              sym"@function.builtin"  { Special }, -- Special
-              sym"@function.macro"    { Macro }, -- Macro
-              sym"@parameter"         { Identifier }, -- Identifier
-              sym"@method"            { Function }, -- Function
-              sym"@field"             { Identifier }, -- Identifier
-              sym"@property"          { Identifier }, -- Identifier
-              sym"@constructor"       { bg=Normal.bg,  fg=VaporLush.Quartenary.shade0 }, -- Special
-              sym"@conditional"       { Conditional }, -- Conditional
-              sym"@repeat"            { Repeat }, -- Repeat
-              sym"@label"             { Label }, -- Label
-              sym"@operator"          { Operator }, -- Operator
-              sym"@keyword"           { Keyword }, -- Keyword
-              sym"@exception"         { Exception }, -- Exception
-              sym"@variable"          { bg=Normal.bg, fg=VaporLush.Quintary.shade2 }, -- Identifier
-              sym"@type"              { Type }, -- Type
-              sym"@type.definition"   { Typedef }, -- Typedef
-              sym"@storageclass"      { StorageClass }, -- StorageClass
-              sym"@structure"         { Structure }, -- Structure
-              sym"@namespace"         { Structure }, -- Identifier
-              sym"@include"           { Include }, -- Include
-              sym"@preproc"           { PreProc }, -- PreProc
-              sym"@debug"             { Debug }, -- Debug
-              sym"@tag"               { Tag }, -- Tag
+          sym"@text.literal"      { Comment }, -- Comment
+          sym"@text.reference"    { Identifier }, -- Identifier
+          sym"@text.title"        { Identifier }, -- Title
+          sym"@text.uri"          { Underlined }, -- Underlined
+          sym"@text.underline"    { Underlined }, -- Underlined
+          sym"@text.todo"         { Todo }, -- BUG:
+          sym"@text.warning"         {  bg= VaporLush.Tertiary.shade2,   fg= VaporLush.Secondary.shade1,       }, -- TODO:
+          sym"@text.note"        {  bg= VaporLush.Secondary.shade0,   fg= VaporLush.Tertiary.shade1,      }, -- WARNING(adam):
+          sym"@text.danger"        {  bg= VaporLush.Quartenary.shade1,   fg= VaporLush.Quintary.shade2,      }, -- FIXME:
+          sym"@comment"           { Comment }, -- Comment
+          sym"@punctuation"       { Delimiter }, -- Delimiter
+          sym"@constant"          { Constant }, -- Constant
+          sym"@constant.builtin"  { Special }, -- Special
+          sym"@constant.macro"    { Define }, -- Define
+          sym"@define"            { Define }, -- Define
+          sym"@macro"             { Define }, -- Macro
+          sym"@string"            { String }, -- String
+          sym"@string.escape"     { SpecialChar }, -- SpecialChar
+          sym"@string.special"    { SpecialChar }, -- SpecialChar
+          sym"@character"         { Character }, -- Character
+          sym"@character.special" { SpecialChar }, -- SpecialChar
+          sym"@number"            { Number }, -- Number
+          sym"@boolean"           { Boolean, gui="bold" }, -- Boolean
+          sym"@float"             { Float }, -- Float
+          sym"@function"          { Function, gui="bold" }, -- Function
+          sym"@function.builtin"  { Special }, -- Special
+          sym"@function.macro"    { Macro }, -- Macro
+          sym"@parameter"         { Identifier }, -- Identifier
+          sym"@method"            { Function }, -- Function
+          sym"@field"             { Identifier }, -- Identifier
+          sym"@property"          { Identifier }, -- Identifier
+          sym"@constructor"       { bg=Normal.bg,  fg=VaporLush.Quartenary.shade0 }, -- Special
+          sym"@conditional"       { Conditional }, -- Conditional
+          sym"@repeat"            { Repeat }, -- Repeat
+          sym"@label"             { Label }, -- Label
+          sym"@operator"          { Operator }, -- Operator
+          sym"@keyword"           { Keyword }, -- Keyword
+          sym"@exception"         { Exception }, -- Exception
+          sym"@variable"          { bg=Normal.bg, fg=VaporLush.Quintary.shade2 }, -- Identifier
+          sym"@type"              { Type }, -- Type
+          sym"@type.definition"   { Typedef }, -- Typedef
+          sym"@storageclass"      { StorageClass }, -- StorageClass
+          sym"@structure"         { Structure }, -- Structure
+          sym"@namespace"         { Structure }, -- Identifier
+          sym"@include"           { Include }, -- Include
+          sym"@preproc"           { PreProc }, -- PreProc
+          sym"@debug"             { Debug }, -- Debug
+          sym"@tag"               { Tag }, -- Tag
         }
     end
 )

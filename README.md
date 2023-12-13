@@ -6,7 +6,7 @@ A vaporwave inspired Neovim theme made with made with [lush.nvim](https://github
 - treesitter
 - telescope
 - fugitive
-- more 🪄
+- 🆕 [Obsidian](https://github.com/epwalsh/obsidian.nvim)
 
 ## Preview
 |                                                                           |                                                                           |
