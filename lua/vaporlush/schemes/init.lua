@@ -1,0 +1,23 @@
+--- @class Vaporlush.Palette
+--- @field bg string The color to use for the background.
+--- @field fg string The color to use for foreground text.
+--- @field bg_highlight string The color to use for the background highlighted.
+--- @field fg_highlight string The color to use for foreground text highlighted.
+--- @field comment string The color to use for comments.
+--- @field primary0 string The first color in the primary palette.
+--- @field primary1 string The second color in the primary palette.
+--- @field primary2 string The third color in the primary palette.
+--- @field primary3 string The fourth color in the primary palette.
+--- @field secondary0 string The first color in the secondary palette.
+--- @field secondary1 string The second color in the secondary palette.
+--- @field secondary2 string The third color in the secondary palette.
+--- @field secondary3 string The fourth color in the secondary palette.
+--- @field tertiary0 string The first color in the tertiary palette.
+--- @field tertiary1 string The second color in the tertiary palette.
+--- @field tertiary2 string The third color in the tertiary palette.
+--- @field tertiary3 string The fourth color in the tertiary palette.
+--- @field quartary0 string The first color in the quartary palette.
+--- @field quartary1 string The second color in the quartary palette.
+--- @field quartary2 string The third color in the quartary palette.
+--- @field quartary3 string The fourth color in the quartary palette.
+--- @field gitsigns { info: string, add: string, change: string, danger: string } A table containing colors for Git signs (e.g. "info", "add", etc.)

@@ -77,18 +77,43 @@ local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h")
 
 function M.get_group(name)
-  ---@type {get: vaporlush.HighlightsFn, url: string}
+  ---@type {set: Vaporlush.HighlightsFn, url: string}
   return Util.mod("vaporlush.groups." .. name)
 end
 
----@param colors ColorScheme
+---@param colors Vaporlush.Palette
 ---@param opts Vaporlush.Config
 function M.get(name, colors, opts)
   local mod = M.get_group(name)
-  return mod.get(colors, opts)
+  return mod.set(colors, opts, nvim_set_hl)
 end
 
----@param colors ColorScheme
+--- @class VaporLush.Mapping
+--- @field fg string? color name or "#RRGGBB", see note.
+--- @field bg string? color name or "#RRGGBB", see note.
+--- @field sp string? color name or "#RRGGBB"
+--- @field blend number?
+--- @field bold boolean?
+--- @field standout boolean?
+--- @field underline boolean?
+--- @field undercurl boolean?
+--- @field underdouble boolean?
+--- @field underdotted boolean?
+--- @field underdashed boolean?
+--- @field strikethrough boolean?
+--- @field italic boolean?
+--- @field reverse boolean?
+DefaultMapping = {}
+
+--- @class Vaporlush.HighlightsFn
+--- @param name string highlight group name e.g. "ErrorMsg"
+--- @param val Vaporlush.Mapping a table constructed in the following { fg = Vaporlush.Palette[field], bg = Vaporlush.Palette[field], .. } 
+--- @see |:help nvim_set_hl|
+function nvim_set_hl(name, val)
+    vim.api.nvim_set_hl(0, name, val)
+end
+
+---@param colors Vaporlush.Palette
 ---@param opts Vaporlush.Config
 function M.setup(colors, opts)
   local groups = {
@@ -160,9 +185,6 @@ function M.setup(colors, opts)
       Util.cache.write(cache_key, { groups = ret, inputs = inputs })
     end
   end
-  opts.on_highlights(ret, colors)
-
-  return ret, groups
 end
 
 return M

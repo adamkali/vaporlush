@@ -1,7 +1,9 @@
 local M = {}
 
-M.bg = "#000000"
-M.fg = "#ffffff"
+local vapor_defalt = require'vaporlush.schemes.vapor'
+M.bg = vapor_defalt.bg
+M.fg = vapor_defalt.fg 
+M.black = '#000000'
 M.day_brightness = 0.3
 
 local uv = vim.uv or vim.loop
