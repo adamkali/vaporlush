@@ -132,19 +132,19 @@ function M.set(c, opts, nvim_set_hl)
         DiagnosticUnderlineHint     = { undercurl = true, sp = c.gitsigns.add },                      -- Used to underline "Hint" diagnostics
 
         -- Health
-        healthError                 = { fg = c.error },
-        healthSuccess               = { fg = c.green1 },
-        healthWarning               = { fg = c.warning },
+        healthError                 = { fg = c.gitsigns.danger },
+        healthSuccess               = { fg = c.gitsigns.add},
+        healthWarning               = { fg = c.gitsigns.change },
 
         -- diff (not needed anymore?)
-        diffAdded                   = { fg = c.git.add },
-        diffRemoved                 = { fg = c.git.delete },
-        diffChanged                 = { fg = c.git.change },
-        diffOldFile                 = { fg = c.yellow },
-        diffNewFile                 = { fg = c.orange },
-        diffFile                    = { fg = c.blue },
+        diffAdded                   = { fg = c.gitsigns.add },
+        diffRemoved                 = { fg = c.gitsigns.danger },
+        diffChanged                 = { fg = c.gitsigns.change },
+        diffOldFile                 = { fg = c.tertiary2 },
+        diffNewFile                 = { fg = c.primary2 },
+        diffFile                    = { fg = c.gitsigns.add },
         diffLine                    = { fg = c.comment },
-        diffIndexLine               = { fg = c.magenta },
+        diffIndexLine               = { fg = c.gitsigns.info },
         helpExample                 = { fg = c.comment },
     }
 
