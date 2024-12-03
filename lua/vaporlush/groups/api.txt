@@ -1,0 +1,23 @@
+nvim_get_hl({ns_id}, {opts})                                   *nvim_get_hl()*
+    Gets all or specific highlight groups in a namespace.
+
+    Note: ~
+      • When the `link` attribute is defined in the highlight definition map,
+        other attributes will not be taking effect (see |:hi-link|).
+
+    Parameters: ~
+      • {ns_id}  Get highlight groups for namespace ns_id
+                 |nvim_get_namespaces()|. Use 0 to get global highlight groups
+                 |:highlight|.
+      • {opts}   Options dict:
+                 • name: (string) Get a highlight definition by name.
+                 • id: (integer) Get a highlight definition by id.
+                 • link: (boolean, default true) Show linked group name
+                   instead of effective definition |:hi-link|.
+                 • create: (boolean, default true) When highlight group
+                   doesn't exist create it.
+
+    Return: ~
+        Highlight groups as a map from group name to a highlight definition
+        map as in |nvim_set_hl()|, or only a single highlight definition map
+        if requested by name or id.

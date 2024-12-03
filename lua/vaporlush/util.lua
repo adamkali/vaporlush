@@ -21,6 +21,7 @@ function M.mod(modname)
   if package.loaded[modname] then
     return package.loaded[modname]
   end
+  print("modname "..modname)
   local ret = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")()
   package.loaded[modname] = ret
   return ret
@@ -167,6 +168,27 @@ function M.cache.clear()
   for _, style in ipairs({ "storm", "day", "night", "moon" }) do
     uv.fs_unlink(M.cache.file(style))
   end
+end
+
+---comment
+---@param hl_group string
+---@param c Vaporlush.Palette
+---@param opts Vaporlush.Config
+---@return VaporLush.Mapping
+---@see Vaporlush.Mapping.Set the Vaporlush.Mapping
+function M.get_hl_group_base(hl_group, c, opts) 
+    return require('vaporlush.groups.base').mappings(c, opts)[hl_group]
+end
+
+---comment
+---@param hl_group string
+---@param c Vaporlush.Palette
+---@param opts Vaporlush.Config
+---@param group_name string
+---@return VaporLush.Mapping
+---@see Vaporlush.Mapping.Set the Vaporlush.Mapping
+function M.get_hl_group(hl_group, c, opts, group_name) 
+    return require('vaporlush.groups.'..group_name).mappings(c, opts)[hl_group]
 end
 
 return M
