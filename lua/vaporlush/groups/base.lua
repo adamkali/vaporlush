@@ -74,8 +74,8 @@ M.mappings =function(c, opts) return {
     TabLineFill                 = { bg = Util.black },                                              -- tab pages line, where there are no labels
     TabLineSel                  = { fg = c.primary0, bg = c.primary2 },                             -- tab pages line, active tab page label
     Title                       = { fg = c.tertiary2, bold = true },                                -- titles for output from ":set all", ":autocmd" etc.
-    Visual                      = { bg = c.secondary2 },                                            -- Visual mode selection
-    VisualNOS                   = { bg = c.secondary2 },                                            -- Visual mode selection when vim is "Not Owning the Selection".
+    Visual                      = { bg = c.secondary0 },                                            -- Visual mode selection
+    VisualNOS                   = { bg = c.secondary0 },                                            -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg                  = { fg = c.gitsigns.change },                                       -- warning messages
     Whitespace                  = { fg = c.comment },                                               -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu                    = { bg = c.secondary2 },                                            -- current match in 'wildmenu' completion

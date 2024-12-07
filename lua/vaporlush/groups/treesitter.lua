@@ -3,10 +3,9 @@ local vapor_base = require("vaporlush.groups.base")
 
 local M = {}
 
-
----@param c Vaporlush.Palette
----@param opts Vaporlush.Config
----@return { [string]: VaporLush.Mapping }
+--- @param c Vaporlush.Palette
+--- @param opts Vaporlush.Config
+--- @return { [string]: VaporLush.Mapping }
 M.mappings = function(c, opts)
     local map =  {
         ["@annotation"]                   = Util.get_hl_group_base("PreProc",c,opts),
@@ -22,34 +21,18 @@ M.mappings = function(c, opts)
         ["@comment.note"]                 = { fg = c.gitsigns.add },
         ["@comment.todo"]                 = { fg = c.gitsigns.info },
         ["@comment.warning"]              = { fg = c.gitsigns.change },
-        -- ["@constructor"]                  = { fg = c.tertiary2, bold = true, italic = true }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-        -- ["@constructor.tsx"]              = { fg = c.blue1, bold = true },
-        -- ["@keyword"]                      = { fg = c.primary1, style = opts.styles.keywords }, -- For keywords that don't fall in previous categories.
-        -- ["@keyword.function"]             = { fg = c.magenta, style = opts.styles.functions }, -- For keywords used to define a function.
-        -- ["@label"]                        = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
-        -- ["@variable"]                     = { fg = c.fg, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
-        -- ["@variable.builtin"]             = { fg = c.red },                         -- Variable names that are defined by the languages, like `this` or `self`.
-        -- ["@variable.member"]              = { fg = c.green1 },                      -- For fields.
-        -- ["@variable.parameter"]           = { fg = c.yellow },                      -- For parameters of a function.
-        -- ["@variable.parameter.builtin"]   = { fg = Util.blend_fg(c.yellow, 0.8) },  -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
-        -- ["@operator"]                     = { fg = c.blue5 }, -- For any operator: `+`, but also `->` and `*` in C.
-        -- ["@property"]                     = { fg = c.green1 },
-        -- ["@punctuation.bracket"]          = { fg = c.fg_dark }, -- For brackets and parens.
-        -- ["@punctuation.delimiter"]        = { fg = c.blue5 }, -- For delimiters ie: `.`
-        -- ["@punctuation.special"]          = { fg = c.blue5 }, -- For special symbols (e.g. `{}` in string interpolation)
-        -- ["@punctuation.special.markdown"] = { fg = c.orange }, -- For special symbols (e.g. `{}` in string interpolation)
-        -- ["@string.documentation"]         = { fg = c.yellow },
-        -- ["@string.escape"]                = { fg = c.magenta }, -- For escape characters within a string.
-        -- ["@string.regexp"]                = { fg = c.blue6 }, -- For regexes.
-        -- ["@tag.delimiter.tsx"]            = { fg = Util.blend_bg(c.blue, 0.7) },
-        -- ["@tag.tsx"]                      = { fg = c.red },
-        -- ["@tag.javascript"]               = { fg = c.red },
-        -- ["@type.builtin"]                 = { fg = Util.blend_bg(c.blue1, 0.8) },
-        -- ["@markup.list"]                  = { fg = c.blue5 }, -- For special punctutation that does not fall in the categories before.
-        -- ["@markup.list.checked"]          = { fg = c.green1 }, -- For brackets and parens.
-        -- ["@markup.list.markdown"]         = { fg = c.orange, bold = true },
-        -- ["@markup.list.unchecked"]        = { fg = c.blue }, -- For brackets and parens.
-        -- ["@markup.raw.markdown_inline"]   = { bg = c.terminal_black, fg = c.blue },
+        ["@constructor"]                  = { fg = c.secondary0, bold = true, italic = true }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+        ["@constructor.tsx"]              = { fg = c.secondary0, bold = true },
+        ["@keyword"]                      = { fg = c.primary2 }, -- For keywords that don't fall in previous categories.
+        ["@keyword.function"]             = { fg = c.quartary1, italic = true }, -- For keywords used to define a function.
+        ["@label"]                        = { fg = c.primary2 }, -- For labels: `label:` in C and `:label:` in Lua.
+        ["@variable"]                     = { fg = c.tertiaryr2,  }, -- Any variable name that does not have another highlight.
+        ["@variable.builtin"]             = { fg = c.gitsigns.danger, },                         -- Variable names that are defined by the languages, like `this` or `self`.
+        ["@variable.member"]              = { fg = c.quartary1 },                      -- For fields.
+        ["@variable.parameter"]           = { fg = c.secondary1 },                      -- For parameters of a function.
+        ["@variable.parameter.builtin"]   = { fg = Util.blend_fg(c.tertiary2, 0.8) },  -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+        ["@operator"]                     = { fg = c.primary1 }, -- For any operator: `+`, but also `->` and `*` in C.
+        ["@property"]                     = { fg = c.secondary1 },
         ["@markup.strikethrough"]         = { strikethrough = true },
         ["@markup.strong"]                = { bold = true },
         ["@markup.underline"]             = { underline = true },
@@ -59,12 +42,12 @@ M.mappings = function(c, opts)
         ["@diff.delta"]                   = Util.get_hl_group_base("DiffChange",c,opts),
         ["@diff.minus"]                   = Util.get_hl_group_base("DiffDelete",c,opts),
         ["@diff.plus"]                    = Util.get_hl_group_base("DiffAdd",c,opts),
-        ["@function"]                     = Util.get_hl_group_base("Function",c,opts),
-        ["@function.builtin"]             = Util.get_hl_group_base("Special",c,opts),
-        ["@function.call"]                = Util.get_hl_group_base("@function",c,opts),
-        ["@function.macro"]               = Util.get_hl_group_base("Macro",c,opts),
-        ["@function.method"]              = Util.get_hl_group_base("Function",c,opts),
-        ["@function.method.call"]         = Util.get_hl_group_base("@function.method",c,opts),
+        ["@function"]                     = { fg = c.tertiary2, italic = true },
+        ["@function.builtin"]             = { fg = c.tertiary0, italic = true },
+        ["@function.call"]                = { fg = c.tertiary2, italic = true },
+        ["@function.macro"]               = { fg = c.tertiary2, italic = true, bold = true },
+        ["@function.method"]              = { fg = c.secondary0, italic = true },
+        ["@function.method.call"]         = { fg = c.secondary2, italic = true },
         ["@keyword.conditional"]          = Util.get_hl_group_base("Conditional",c,opts),
         ["@keyword.coroutine"]            = Util.get_hl_group_base("@keyword",c,opts),
         ["@keyword.debug"]                = Util.get_hl_group_base("Debug",c,opts),
@@ -96,13 +79,28 @@ M.mappings = function(c, opts)
         ["@type"]                         = Util.get_hl_group_base("Type",c,opts),
         ["@type.definition"]              = Util.get_hl_group_base("Typedef",c,opts),
         ["@type.qualifier"]               = Util.get_hl_group_base("@keyword",c,opts),
+        ["@punctuation.bracket"]          = { fg = c.secondary1 }, -- For brackets and parens.
+        ["@punctuation.delimiter"]        = { fg = c.secondary2 }, -- For delimiters ie: `.`
+        ["@punctuation.special"]          = { fg = c.secondary2 }, -- For special symbols (e.g. `{}` in string interpolation)
+        ["@punctuation.special.markdown"] = { fg = c.secondary3 }, -- For special symbols (e.g. `{}` in string interpolation)
+        ["@string.documentation"]         = { fg = c.tertiary1 },
+        ["@string.escape"]                = { fg = c.tertiary0 }, -- For escape characters within a string.
+        ["@string.regexp"]                = { fg = c.quartary0 }, -- For regexes.
+        ["@tag.delimiter.tsx"]            = { fg = Util.blend_bg(c.quartary3, 0.7) },
+        ["@tag.tsx"]                      = { fg = c.quartary2 },
+        ["@tag.javascript"]               = { fg = c.quartary2 },
+        ["@type.builtin"]                 = { fg = Util.blend_bg(c.primary1, 0.8) },
+        ["@markup.list"]                  = { fg = c.primary1 }, -- For special punctutation that does not fall in the categories before.
+        ["@markup.list.checked"]          = { fg = c.quartary1 }, -- For brackets and parens.
+        ["@markup.list.markdown"]         = { fg = c.tertiary2, bold = true },
+        ["@markup.list.unchecked"]        = { fg = c.primary2 }, -- For brackets and parens.
+        ["@markup.raw.markdown_inline"]   = { fg = c.primary3 },
     }
-
 
     return map
 end
 
----@type Vaporlush.Mapping.Set
+--- @type Vaporlush.Mapping.Set
 function M.set(c, opts, nvim_set_hl)
     for key, mapping in pairs(M.mappings(c, opts)) do
         if (mapping.bg == nil) then

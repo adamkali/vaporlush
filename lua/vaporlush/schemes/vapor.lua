@@ -1,6 +1,6 @@
 --- @type Vaporlush.Palette
 VaporPalette = {
-    bg = '#0e133b',
+    bg = '#0e102d',
     fg = '#dbe9ff',
     bg_highlight = '#3a3856',
     fg_highlight = '#ebf9ff',

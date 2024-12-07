@@ -1,4 +1,3 @@
-local Config = require("vaporlush.config")
 local Util = require("vaporlush.util")
 
 local M = {}
@@ -118,7 +117,7 @@ end
 function M.setup(colors, opts)
     local groups = {
         base = true,
-        --kinds = true,
+        kinds = true,
         --semantic_tokens = true,
         treesitter = true,
     }

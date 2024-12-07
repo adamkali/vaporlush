@@ -21,7 +21,6 @@ function M.mod(modname)
   if package.loaded[modname] then
     return package.loaded[modname]
   end
-  print("modname "..modname)
   local ret = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")()
   package.loaded[modname] = ret
   return ret
@@ -187,7 +186,7 @@ end
 ---@param group_name string
 ---@return VaporLush.Mapping
 ---@see Vaporlush.Mapping.Set the Vaporlush.Mapping
-function M.get_hl_group(hl_group, c, opts, group_name) 
+function M.get_hl_group(hl_group, c, opts, group_name)
     return require('vaporlush.groups.'..group_name).mappings(c, opts)[hl_group]
 end
 

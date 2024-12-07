@@ -1,6 +1,6 @@
 -- vapor theme for wezterm
 VaporPalette = {
-    bg = '#0e133b',
+    bg = '#0e102d',
     fg = '#dbe9ff',
     bg_highlight = '#3a3856',
     fg_highlight = '#ebf9ff',
@@ -29,39 +29,23 @@ VaporPalette = {
     }
 }
 
+
 return {
-    foreground = VaporPalette.foreground,
-    background = VaporPalette.background,
+    foreground = VaporPalette.fg,
+    background = VaporPalette.bg,
 
     cursor_bg = VaporPalette.comment,
-    cursor_fg = VaporPalette.blue2,
-    cursor_border = VaporPalette.blue2,
+    cursor_fg = VaporPalette.primary2,
+    cursor_border = VaporPalette.primary2,
 
-    selection_fg = VaporPalette.foreground,
-    selection_bg = VaporPalette.purple0,
+    selection_fg = VaporPalette.fg,
+    selection_bg = VaporPalette.secondary0,
 
-    scrollbar_thumb = VaporPalette.background,
+    scrollbar_thumb = VaporPalette.bg,
     split = VaporPalette.comment,
 
-    ansi = {
-        VaporPalette.background,
-        VaporPalette.gitsigns.danger,
-        VaporPalette.cyan1,
-        VaporPalette.yellow2,
-        VaporPalette.blue1,
-        VaporPalette.purple0,
-        VaporPalette.cyan3,
-        "#ffffff"
-    },
-    brights = {
-        VaporPalette.background,
-        VaporPalette.gitsigns.danger,
-        VaporPalette.cyan1,
-        VaporPalette.yellow2,
-        VaporPalette.blue1,
-        VaporPalette.purple0,
-        VaporPalette.cyan3,
-        "#ffffff"
-    },
+    ansi = { VaporPalette.bg, VaporPalette.gitsigns.danger, VaporPalette.quartary1, VaporPalette.tertiary2, VaporPalette.primary1, VaporPalette.secondary0, VaporPalette.quartary3, VaporPalette.fg_highlight },
+    brights = { VaporPalette.bg, VaporPalette.gitsigns.danger, VaporPalette.quartary1, VaporPalette.tertiary2, VaporPalette.primary1, VaporPalette.secondary0, VaporPalette.quartary3, VaporPalette.fg_highlight },
     indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
 }
+
