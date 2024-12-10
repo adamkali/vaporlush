@@ -2,6 +2,10 @@
 
 A vaporwave inspired Neovim theme made with [lush.nvim](https://github.com/rktjmp/lush.nvim)
 
+> [!Note]
+> This is the v1 realease that relys on lush.nvim if you
+> do not want that dependency check out: [v2](https://github.com/adamkali/vaporlush/tree/v2)
+
 ## Supports:
 - treesitter
 - telescope
