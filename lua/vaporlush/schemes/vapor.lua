@@ -1,10 +1,10 @@
 --- @type Vaporlush.Palette
 VaporPalette = {
     bg = '#0e102d',
-    fg = '#dbe9ff',
+    fg = '#82a6fa',
     bg_highlight = '#3a3856',
-    fg_highlight = '#ebf9ff',
-    comment = '#9098a6',
+    fg_highlight = '#5885ed',
+    comment = '#4b6299',
     primary0 = '#0700de',
     primary1 = '#0b03fc',
     primary2 = '#352ff5',
