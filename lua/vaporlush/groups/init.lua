@@ -6,7 +6,7 @@ local M = {}
 
 -- stylua: ignore
 M.plugins = {
-    ["nvim-cmp"]                = "cmp",
+    ["nvim-cmp"]       = "cmp",
     --["nvim-dap"]                = "dap",
     --["nvim-navic"]              = "navic",
     --["nvim-notify"]             = "notify",
@@ -14,12 +14,12 @@ M.plugins = {
     --["nvim-tree.lua"]           = "nvim-tree",
     --["nvim-treesitter-context"] = "treesitter-context",
     --["octo.nvim"]               = "octo",
-    ["oil.nvim"]                = "oil",
+    ["oil.nvim"]       = "oil",
     --["rainbow-delimiters.nvim"] = "rainbow",
     --["render-markdown.nvim"]    = "render-markdown",
     --["snacks.nvim"]             = "snacks",
     --["supermaven-nvim"]         = "supermaven",
-    ["telescope.nvim"]          = "telescope",
+    ["telescope.nvim"] = "telescope",
     --["trouble.nvim"]            = "trouble",
     --["vim-gitgutter"]           = "gitgutter",
     --["vim-glyph-palette"]       = "glyph-palette",
@@ -80,55 +80,55 @@ function M.setup(colors, opts)
         treesitter = true,
     }
 
-  if opts.plugins.all then
-    for _, group in pairs(M.plugins) do
-      groups[group] = true
-    end
-  elseif opts.plugins.auto and package.loaded.lazy then
-    local plugins = require("lazy.core.config").plugins
-    for plugin, group in pairs(M.plugins) do
-      if plugins[plugin] then
-        groups[group] = true
-      end
-    end
-
-    -- special case for mini.nvim
-    if plugins["mini.nvim"] then
-      for _, group in pairs(M.plugins) do
-        if group:find("^mini_") then
-          groups[group] = true
+    if opts.plugins.all then
+        for _, group in pairs(M.plugins) do
+            groups[group] = true
         end
-      end
+    elseif opts.plugins.auto and package.loaded.lazy then
+        local plugins = require("lazy.core.config").plugins
+        for plugin, group in pairs(M.plugins) do
+            if plugins[plugin] then
+                groups[group] = true
+            end
+        end
+
+        -- special case for mini.nvim
+        if plugins["mini.nvim"] then
+            for _, group in pairs(M.plugins) do
+                if group:find("^mini_") then
+                    groups[group] = true
+                end
+            end
+        end
     end
-  end
 
-  -- manually enable/disable plugins
-  for plugin, group in pairs(M.plugins) do
-    local use = opts.plugins[group]
-    use = use == nil and opts.plugins[plugin] or use
-    if use ~= nil then
-      if type(use) == "table" then
-        use = use.enabled
-      end
-      groups[group] = use or nil
+    -- manually enable/disable plugins
+    for plugin, group in pairs(M.plugins) do
+        local use = opts.plugins[group]
+        use = use == nil and opts.plugins[plugin] or use
+        if use ~= nil then
+            if type(use) == "table" then
+                use = use.enabled
+            end
+            groups[group] = use or nil
+        end
     end
-  end
 
-  local names = vim.tbl_keys(groups)
-  table.sort(names)
+    local names = vim.tbl_keys(groups)
+    table.sort(names)
 
-  local cache_key = opts.style
-  local cache = opts.cache and Util.cache.read(cache_key)
+    local cache_key = opts.style
+    local cache = opts.cache and Util.cache.read(cache_key)
 
-  local inputs = {
-    colors = colors,
-    plugins = names,
-    version = Config.version,
-    opts = { transparent = opts.transparent, styles = opts.styles, dim_inactive = opts.dim_inactive },
-  }
+    local inputs = {
+        colors = colors,
+        plugins = names,
+        version = Config.version,
+        opts = { transparent = opts.transparent, styles = opts.styles, dim_inactive = opts.dim_inactive },
+    }
 
-  local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups
-  if not ret then
+    local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups
+    if not ret then
         ret = {}
         for group in pairs(groups) do
             M.get(group, colors, opts)

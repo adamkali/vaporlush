@@ -6,8 +6,6 @@ M.styles = {}
 ---@class Vaporlush.Global
 ---@field palette Vaporlush.Palette
 
-
-
 ---@param opts? Vaporlush.Config
 function M.load(opts)
     opts = require("vaporlush.config").extend(opts)
