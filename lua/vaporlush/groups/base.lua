@@ -53,9 +53,9 @@ M.mappings = function(c, opts)
         NormalFloat                 = { fg = c.fg },      -- Normal text in floating windows.
         FloatBorder                 = { fg = c.quartary3, bg = c.bg },
         FloatTitle                  = { fg = c.border_highlight, bg = Util.blend_bg(c.primary3, 0.3) },
-        Pmenu                       = { bg = Util.blend_bg(c.primary3, 0.2), fg = c.fg },       -- Popup menu: normal item.
-        PmenuMatch                  = { bg = Util.blend_bg(c.primary3, 0.8), fg = c.quartary1 }, -- Popup menu: Matched text in normal item.
-        PmenuSel                    = { bg = Util.blend_bg(c.fg, 0.8) },                        -- Popup menu: selected item.
+        Pmenu                       = { bg = c.bg, fg = c.fg },       -- Popup menu: normal item.
+        PmenuMatch                  = { bg = c.bg, fg = c.quartary1 }, -- Popup menu: Matched text in normal item.
+        PmenuSel                    = { bg = c.bg, fg = c.tertiary2 },                        -- Popup menu: selected item.
         PmenuMatchSel               = { bg = Util.blend_bg(c.fg, 0.8), fg = c.quartary2 },      -- Popup menu: Matched text in selected item.
         PmenuSbar                   = { bg = Util.blend_fg(c.primary2, 0.95) },                 -- Popup menu: scrollbar.
         PmenuThumb                  = { bg = c.fg_highlight },                                  -- Popup menu: Thumb of the scrollbar.

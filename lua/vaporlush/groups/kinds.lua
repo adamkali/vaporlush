@@ -55,6 +55,7 @@ function M.set(c, opts, nvim_set_hl)
         if (mapping.fg == nil) then
             mapping.fg = c.fg
         end
+        key = "LspKind" ..key
         nvim_set_hl(key, mapping)
     end
 end
