@@ -15,8 +15,8 @@ end
 ---@return { [string]: VaporLush.Mapping }
 M.mappings = function(c, opts)
     return {
-        Foo                         = { bg = c.bg, fg = c.fg },
-        Comment                     = { bg = c.bg, fg = c.comment, italic = true }, -- any comment
+        Foo                         = {  fg = c.fg },
+        Comment                     = {  fg = c.comment, italic = true }, -- any comment
         ColorColumn                 = { bg = c.bg },                            -- used for the columns set with 'colorcolumn'
         Conceal                     = { fg = c.quartary0 },                     -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor                      = { fg = c.bg, bg = c.primary1 },                 -- character under the cursor
@@ -47,10 +47,10 @@ M.mappings = function(c, opts)
         MsgArea                     = { fg = c.fg },                 -- Area for messages and cmdline
         MoreMsg                     = { fg = c.primary0 },           -- |more-prompt|
         NonText                     = { fg = c.secondary0 },         -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal                      = { fg = c.fg },      -- normal text
-        NormalNC                    = { fg = c.fg },      -- normal text in non-current windows
-        NormalSB                    = { fg = c.fg },      -- normal text in sidebar
-        NormalFloat                 = { fg = c.fg },      -- Normal text in floating windows.
+        Normal                      = { fg = c.fg, bg = c.bg },      -- normal text
+        NormalNC                    = { fg = c.fg, bg = c.bg  },      -- normal text in non-current windows
+        NormalSB                    = { fg = c.fg, bg = c.bg  },      -- normal text in sidebar
+        NormalFloat                 = { fg = c.fg, bg = c.bg  },      -- Normal text in floating windows.
         FloatBorder                 = { fg = c.quartary3, bg = c.bg },
         FloatTitle                  = { fg = c.border_highlight, bg = Util.blend_bg(c.primary3, 0.3) },
         Pmenu                       = { bg = c.bg, fg = c.fg },       -- Popup menu: normal item.
@@ -160,12 +160,6 @@ end
 --- @return nil
 function M.set(c, opts, nvim_set_hl)
     for key, mapping in pairs(M.mappings(c, opts)) do
-        if (mapping.bg == nil) then
-            mapping.bg = c.bg
-        end
-        if (mapping.fg == nil) then
-            mapping.fg = c.fg
-        end
         nvim_set_hl(key, mapping)
     end
 end

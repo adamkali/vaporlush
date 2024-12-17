@@ -52,12 +52,6 @@ end
 --- @type Vaporlush.Mapping.Set
 function M.set(c, opts, nvim_set_hl)
     for key, mapping in pairs(M.mappings(c, opts)) do
-        if (mapping.bg == nil) then
-            mapping.bg = c.bg
-        end
-        if (mapping.fg == nil) then
-            mapping.fg = c.fg
-        end
         nvim_set_hl(key, mapping)
     end
 end
