@@ -6,22 +6,20 @@ M.styles = {}
 ---@class Vaporlush.Global
 ---@field palette Vaporlush.Palette
 
----@type Vaporlush.Global
-vim.g.Vaporlush = {
-    palette = require('vaporlush.schemes.vapor')
-}
 
 
 ---@param opts? Vaporlush.Config
 function M.load(opts)
-  opts = require("vaporlush.config").extend(opts)
-  local bg = vim.o.background
-  local style_bg = opts.style == "day" and "light" or "dark"
-  vim.o.termguicolors = true
+    opts = require("vaporlush.config").extend(opts)
+    local bg = vim.o.background
+    vim.o.termguicolors = true
 
-  local colors = require("vaporlush.schemes." .. opts.style)
-  vim.g.Vaporlush.palette = colors
-  require("vaporlush.groups").setup(colors, opts)
+    local colors = require("vaporlush.schemes." .. opts.style)
+    ---@type Vaporlush.Global
+    vim.g.Vaporlush = {
+        palette = colors
+    }
+    require("vaporlush.groups").setup(colors, opts)
 end
 
 M.setup = config.setup
