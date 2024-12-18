@@ -34,7 +34,7 @@ local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h")
 
 function M.get_group(name)
-    ---@type {set: Vaporlush.HighlightsFn, url: string}
+    ---@type {set: Vaporlush.HighlightsFn, url: string, mappings: table}
     return Util.mod("vaporlush.groups." .. name)
 end
 
@@ -42,7 +42,7 @@ end
 ---@param opts Vaporlush.Config
 function M.get(name, colors, opts)
     local mod = M.get_group(name)
-    return mod.set(colors, opts, nvim_set_hl)
+    return mod.mappings(colors, opts)
 end
 
 --- @class VaporLush.Mapping
@@ -64,8 +64,8 @@ DefaultMapping = {}
 
 --- @class Vaporlush.HighlightsFn
 --- @param name string highlight group name e.g. "ErrorMsg"
---- @param val Vaporlush.Mapping a table constructed in the following { fg = Vaporlush.Palette[field], bg = Vaporlush.Palette[field], .. }
---- @see |:help nvim_set_hl|
+--- @param val vim.api.keyset.highlight a table constructed in the following { fg = Vaporlush.Palette[field], bg = Vaporlush.Palette[field], .. }
+--- |:help nvim_set_hl|
 function nvim_set_hl(name, val)
     vim.api.nvim_set_hl(0, name, val)
 end
@@ -128,12 +128,22 @@ function M.setup(colors, opts)
     }
 
     local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups
+
     if not ret then
         ret = {}
+        -- merge highlights
         for group in pairs(groups) do
-            M.get(group, colors, opts)
+            for k, v in pairs(M.get(group, colors, opts)) do
+                ret[k] = v
+            end
+        end
+        Util.resolve(ret)
+        if opts.cache then
+            Util.cache.write(cache_key, { groups = ret, inputs = inputs })
         end
     end
+   -- opts.on_highlights(ret, colors)
+   return ret
 end
 
 return M

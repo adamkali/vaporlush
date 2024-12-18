@@ -2,7 +2,8 @@
 
 ![vaporlush](./imgs/vaporlush.png)
 
-An absolutely dank Neovim Colorscheme
+Absolutely Dank Vaporwave colorschemes :) 
+
 
 ## Preface 
 
@@ -17,7 +18,7 @@ The orignal vaporlush look spruced up a little for more contrast, and updated co
 ### Blossom
 The Neon Cherry Blossom colorscheme.
 
-### Versus
+### 1996
 A Dark green vibes based colorscheme. 
 
 Anyways Vaporize me captain!
@@ -32,17 +33,32 @@ Anyways Vaporize me captain!
 ```lua
 {
     "adamkali/vaporlush",
-    branch = "v2", -- must be set until stable
+    branch = "v2", -- must be set until stable 
     lazy = false,
     priority = 1000,
     opts = {
-        cache = true,
+        cache = true, -- cache the currently held colorscheme 
         style = 'vapor'
         -- style = 'blossom'
         -- style = '1996'
     }
 },
 ```
+
+### Lualine
+When using lualine, this is the setup I go with: 
+```lua
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'adamkali/vaporlush' },
+        opts = {
+            theme = 'vaporlush',
+            -- any other configuration should be continued here
+        }
+    }
+```
+
+This will load in [vaporlush.lualine](./lua/lualine/themes/vaporlush.lua) and apply the currently loaded in colorscheme. And as a result, allows you to just change `opts.style = <scheme>` in vaporlush's opts table to change vaporlush as well.
 
 ## Preview
 

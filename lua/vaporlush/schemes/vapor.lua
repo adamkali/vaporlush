@@ -4,7 +4,7 @@ VaporPalette = {
     fg = '#82a6fa',
     bg_highlight = '#3a3856',
     fg_highlight = '#5885ed',
-    comment = '#4b6299',
+    comment = '#8da0b8',
     primary0 = '#0700de',
     primary1 = '#0b03fc',
     primary2 = '#352ff5',
@@ -13,19 +13,19 @@ VaporPalette = {
     secondary1 = '#e60580',
     secondary2 = '#fa34a1',
     secondary3 = '#fc65b8',
-    tertiary0 = '#e6b800',
-    tertiary1 = '#e6da00',
-    tertiary2 = '#f3e500',
-    tertiary3 = '#fffa99',
+    tertiary0 = '#3f10cc',
+    tertiary1 = '#6439e6',
+    tertiary2 = '#8864f5',
+    tertiary3 = '#af95fc',
     quartary0 = '#006655',
     quartary1 = '#00ccaa',
     quartary2 = '#33ffdd',
     quartary3 = '#99ffee',
     gitsigns = {
-        info = '#30fcae',
-        add = '#dfff50',
-        change = '#ebb134',
-        danger = '#ff4334'
+        info = '#fa8241',
+        add = '#f538f5',
+        change = '#d90460',
+        danger = '#6c0275'
     }
 }
 
