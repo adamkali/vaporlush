@@ -52,7 +52,7 @@ M.mappings = function(c, opts)
         NormalSB                    = { fg = c.fg, bg = c.bg  },      -- normal text in sidebar
         NormalFloat                 = { fg = c.fg, bg = c.bg  },      -- Normal text in floating windows.
         FloatBorder                 = { fg = c.quartary3, bg = c.bg },
-        FloatTitle                  = { fg = c.border_highlight, bg = Util.blend_bg(c.primary3, 0.3) },
+        FloatTitle                  = { fg = c.secondary3, bg = Util.blend_bg(c.primary3, 0.3) },
         Pmenu                       = { bg = c.bg, fg = c.fg },       -- Popup menu: normal item.
         PmenuMatch                  = { bg = c.bg, fg = c.quartary1 }, -- Popup menu: Matched text in normal item.
         PmenuSel                    = { bg = c.bg, fg = c.tertiary2 },                        -- Popup menu: selected item.
@@ -75,7 +75,7 @@ M.mappings = function(c, opts)
         TabLineFill                 = { bg = Util.black },                                      -- tab pages line, where there are no labels
         TabLineSel                  = { fg = c.primary0, bg = c.primary2 },                     -- tab pages line, active tab page label
         Title                       = { fg = c.tertiary2, bold = true },                        -- titles for output from ":set all", ":autocmd" etc.
-        Visual                      = { bg = c.secondary0 },                                    -- Visual mode selection
+        Visual                      = { bg = c.primary3, fg = c.bg},                                    -- Visual mode selection
         VisualNOS                   = { bg = c.secondary0 },                                    -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg                  = { fg = c.gitsigns.change },                               -- warning messages
         Whitespace                  = { fg = c.comment },                                       -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -153,7 +153,6 @@ M.mappings = function(c, opts)
 end
 
 --- @class Vaporlush.Mapping.Set
---- comment
 --- @param c Vaporlush.Palette
 --- @param opts any
 --- @param nvim_set_hl Vaporlush.HighlightsFn
