@@ -137,7 +137,6 @@ function M.setup(colors, opts)
                 ret[k] = v
             end
         end
-        vim.print({ ['cs'] = ret })
         Util.resolve(ret)
         if opts.cache then
             Util.cache.write(cache_key, { groups = ret, inputs = inputs })
