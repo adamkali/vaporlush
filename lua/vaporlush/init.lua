@@ -15,23 +15,22 @@ function M.load(opts)
 
     local colors = require("vaporlush.schemes." .. opts.style)
     local groups = require("vaporlush.groups").setup(colors, opts)
+    local lualine = require('vaporlush.schemes.lualine-'.. opts.style)
+
     vim.o.termguicolors = true
-    vim.g.colors_name = "tokyonight-" .. opts.style
+    vim.g.colors_name = "vaporlush-" .. opts.style
 
     for group, hl in pairs(groups) do
         hl = type(hl) == "string" and { link = hl } or hl
         vim.api.nvim_set_hl(0, group, hl)
     end
+
     ---@type Vaporlush.Global
     vim.g.Vaporlush = {
         palette = colors,
         style = opts.style,
-        lualine = util.lualine(colors)
+        lualine = lualine
     }
-
-    --if opts.terminal_colors then
-    --    M.terminal(colors)
-    --end
 
     return colors, groups, opts
 end
