@@ -2,7 +2,6 @@ local M = {}
 
 M.url = "https://github.com/nvim-telescope/telescope.nvim"
 
----@type tokyonight.HighlightsFn
 M.mappings = function(c, opts)
   -- stylua: ignore
   return {

@@ -15,13 +15,13 @@ end
 ---@return { [string]: VaporLush.Mapping }
 M.mappings = function(c, opts)
     return {
-        Foo                         = {  fg = c.fg },
-        Comment                     = {  fg = c.comment, italic = true }, -- any comment
+        Foo                         = { fg = c.fg },
+        Comment                     = { fg = c.comment, italic = true },        -- any comment
         ColorColumn                 = { bg = c.bg },                            -- used for the columns set with 'colorcolumn'
         Conceal                     = { fg = c.quartary0 },                     -- placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor                      = { fg = c.bg, bg = c.primary1 },                 -- character under the cursor
+        Cursor                      = { fg = c.bg, bg = c.primary1 },           -- character under the cursor
         lCursor                     = { fg = c.bg, bg = c.fg },                 -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-        CursorIM                    = { fg = c.bg, bg = c.primary3 },                 -- like Cursor, but used when in IME mode |CursorIM|
+        CursorIM                    = { fg = c.bg, bg = c.primary3 },           -- like Cursor, but used when in IME mode |CursorIM|
         CursorColumn                = { bg = c.bg_highlight },                  -- Screen-column at the cursor, when 'cursorcolumn' is set.
         CursorLine                  = { bg = c.bg_highlight },                  -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory                   = { fg = c.tertiary2 },                     -- directory names (and other special names in listings)
@@ -33,7 +33,7 @@ M.mappings = function(c, opts)
         ErrorMsg                    = { fg = c.gitsigns.danger },               -- error messages on the command line
         VertSplit                   = { fg = c.comment },                       -- the column separating vertically split windows
         WinSeparator                = { fg = c.comment, bold = true },          -- the column separating vertically split windows
-        Folded                      = { fg = c.primary3, bg = c.primary0 }, -- line used for closed folds
+        Folded                      = { fg = c.primary3, bg = c.primary0 },     -- line used for closed folds
         FoldColumn                  = { fg = c.comment },                       -- 'foldcolumn'
         SignColumn                  = { fg = c.fg_highlight },                  -- column where |signs| are displayed
         SignColumnSB                = { bg = c.primary0, fg = c.fg_highlight }, -- column where |signs| are displayed
@@ -43,19 +43,19 @@ M.mappings = function(c, opts)
         LineNrAbove                 = { fg = c.primary2 },
         LineNrBelow                 = { fg = c.primary2 },
         MatchParen                  = { fg = c.quartary2, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-        ModeMsg                     = { fg = c.fg, bold = true },    -- 'showmode' message (e.g., "-- INSERT -- ")
-        MsgArea                     = { fg = c.fg },                 -- Area for messages and cmdline
-        MoreMsg                     = { fg = c.primary0 },           -- |more-prompt|
-        NonText                     = { fg = c.secondary0 },         -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal                      = { fg = c.fg, bg = c.bg },      -- normal text
-        NormalNC                    = { fg = c.fg, bg = c.bg  },      -- normal text in non-current windows
-        NormalSB                    = { fg = c.fg, bg = c.bg  },      -- normal text in sidebar
-        NormalFloat                 = { fg = c.fg, bg = c.bg  },      -- Normal text in floating windows.
+        ModeMsg                     = { fg = c.fg, bold = true },        -- 'showmode' message (e.g., "-- INSERT -- ")
+        MsgArea                     = { fg = c.fg },                     -- Area for messages and cmdline
+        MoreMsg                     = { fg = c.primary0 },               -- |more-prompt|
+        NonText                     = { fg = c.secondary0 },             -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+        Normal                      = { fg = c.fg, bg = c.bg },          -- normal text
+        NormalNC                    = { fg = c.fg, bg = c.bg },          -- normal text in non-current windows
+        NormalSB                    = { fg = c.fg, bg = c.bg },          -- normal text in sidebar
+        NormalFloat                 = { fg = c.fg, bg = c.bg },          -- Normal text in floating windows.
         FloatBorder                 = { fg = c.quartary3, bg = c.bg },
         FloatTitle                  = { fg = c.secondary3, bg = Util.blend_bg(c.primary3, 0.3) },
-        Pmenu                       = { bg = c.bg, fg = c.fg },       -- Popup menu: normal item.
-        PmenuMatch                  = { bg = c.bg, fg = c.quartary1 }, -- Popup menu: Matched text in normal item.
-        PmenuSel                    = { bg = c.bg, fg = c.tertiary2 },                        -- Popup menu: selected item.
+        Pmenu                       = { bg = c.bg, fg = c.fg },                                 -- Popup menu: normal item.
+        PmenuMatch                  = { bg = c.bg, fg = c.quartary1 },                          -- Popup menu: Matched text in normal item.
+        PmenuSel                    = { bg = c.bg, fg = c.tertiary2 },                          -- Popup menu: selected item.
         PmenuMatchSel               = { bg = Util.blend_bg(c.fg, 0.8), fg = c.quartary2 },      -- Popup menu: Matched text in selected item.
         PmenuSbar                   = { bg = Util.blend_fg(c.primary2, 0.95) },                 -- Popup menu: scrollbar.
         PmenuThumb                  = { bg = c.fg_highlight },                                  -- Popup menu: Thumb of the scrollbar.
@@ -75,7 +75,7 @@ M.mappings = function(c, opts)
         TabLineFill                 = { bg = Util.black },                                      -- tab pages line, where there are no labels
         TabLineSel                  = { fg = c.primary0, bg = c.primary2 },                     -- tab pages line, active tab page label
         Title                       = { fg = c.tertiary2, bold = true },                        -- titles for output from ":set all", ":autocmd" etc.
-        Visual                      = { bg = c.primary3, fg = c.bg},                                    -- Visual mode selection
+        Visual                      = { bg = c.primary3, fg = c.bg },                           -- Visual mode selection
         VisualNOS                   = { bg = c.secondary0 },                                    -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg                  = { fg = c.gitsigns.change },                               -- warning messages
         Whitespace                  = { fg = c.comment },                                       -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -111,8 +111,8 @@ M.mappings = function(c, opts)
 
         -- These groups are for the native LSP client. Some other LSP clients may
         -- use these groups, or use their own.
-        LspReferenceText            = { bg = c.bg_highlight }, -- used for highlighting "text" references
-        LspReferenceRead            = { bg = c.primary3, fg = c.primary0 }, -- used for highlighting "read" references
+        LspReferenceText            = { bg = c.bg_highlight },                  -- used for highlighting "text" references
+        LspReferenceRead            = { bg = c.primary3, fg = c.primary0 },     -- used for highlighting "read" references
         LspReferenceWrite           = { bg = c.secondary3, fg = c.secondary0 }, -- used for highlighting "write" references
         LspSignatureActiveParameter = { bg = Util.blend_bg(c.primary0, 0.2), bold = true },
         LspCodeLens                 = { fg = c.quartary0 },
@@ -120,19 +120,19 @@ M.mappings = function(c, opts)
         LspInfoBorder               = { fg = Util.blend_fg(c.primary0, 0.5) },
 
         -- diagnostics
-        DiagnosticError             = { fg = c.gitsigns.danger },                                         -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticWarn              = { fg = c.gitsigns.change },                                         -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticInfo              = { fg = c.primary3 },                                                -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticHint              = { fg = c.quartary3 },                                               -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticUnnecessary       = { fg = c.comment },                                                 -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticError             = { fg = c.gitsigns.danger, bold = true, italic = true },                 -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticWarn              = { fg = c.gitsigns.change, bold = true, italic = true },                 -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticInfo              = { fg = c.gitsigns.info, bold = true, italic = true },                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticHint              = { fg = c.gitsigns.add, bold = true, italic = true },                    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticUnnecessary       = { fg = c.comment },                                                     -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticVirtualTextError  = { bg = Util.blend_bg(c.gitsigns.danger, 0.1), fg = c.gitsigns.danger }, -- Used for "Error" diagnostic virtual text
         DiagnosticVirtualTextWarn   = { bg = Util.blend_bg(c.gitsigns.change, 0.1), fg = c.gitsigns.change }, -- Used for "Warning" diagnostic virtual text
-        DiagnosticVirtualTextInfo   = { bg = Util.blend_bg(c.gitsigns.add, 0.1), fg = c.gitsigns.add },   -- Used for "Information" diagnostic virtual text
-        DiagnosticVirtualTextHint   = { bg = Util.blend_bg(c.gitsigns.add, 0.1), fg = c.gitsigns.add },   -- Used for "Hint" diagnostic virtual text
-        DiagnosticUnderlineError    = { undercurl = true, sp = c.gitsigns.danger },                       -- Used to underline "Error" diagnostics
-        DiagnosticUnderlineWarn     = { undercurl = true, sp = c.gitsigns.change },                       -- Used to underline "Warning" diagnostics
-        DiagnosticUnderlineInfo     = { undercurl = true, sp = c.gitsigns.add },                          -- Used to underline "Information" diagnostics
-        DiagnosticUnderlineHint     = { undercurl = true, sp = c.gitsigns.add },                          -- Used to underline "Hint" diagnostics
+        DiagnosticVirtualTextInfo   = { bg = Util.blend_bg(c.gitsigns.info, 0.1), fg = c.gitsigns.info },     -- Used for "Information" diagnostic virtual text
+        DiagnosticVirtualTextHint   = { bg = Util.blend_bg(c.gitsigns.add, 0.1), fg = c.gitsigns.add },       -- Used for "Hint" diagnostic virtual text
+        DiagnosticUnderlineError    = { undercurl = true, sp = c.gitsigns.danger },                           -- Used to underline "Error" diagnostics
+        DiagnosticUnderlineWarn     = { undercurl = true, sp = c.gitsigns.change },                           -- Used to underline "Warning" diagnostics
+        DiagnosticUnderlineInfo     = { undercurl = true, sp = c.gitsigns.info },                             -- Used to underline "Information" diagnostics
+        DiagnosticUnderlineHint     = { undercurl = true, sp = c.gitsigns.add },                              -- Used to underline "Hint" diagnostics
 
         -- Health
         healthError                 = { fg = c.gitsigns.danger },

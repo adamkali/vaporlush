@@ -12,7 +12,7 @@ return {
     },
     visual = {
         a = { bg = colorscheme.tertiary0, fg = colorscheme.primary3, gui = 'bold' },
-        b = { bg = colorscheme.quartary3, fg = colorscheme.tertiary3, gui = 'italic' },
+        b = { bg = colorscheme.quartary1, fg = colorscheme.tertiary2, gui = 'italic' },
         c = { bg = colorscheme.bg, fg = colorscheme.primary3 }
     },
     replace = {
