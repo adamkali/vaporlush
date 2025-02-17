@@ -1,34 +1,43 @@
---RenderMarkdownH1|1 col 1| RenderMarkdownH1
---RenderMarkdownH2|1 col 1| RenderMarkdownH2
---RenderMarkdownH3|1 col 1| RenderMarkdownH3
---RenderMarkdownH4|1 col 1| RenderMarkdownH4
---RenderMarkdownH5|1 col 1| RenderMarkdownH5
---RenderMarkdownH6|1 col 1| RenderMarkdownH6
---RenderMarkdownCode|1 col 1| RenderMarkdownCode
---RenderMarkdownDash|1 col 1| RenderMarkdownDash
---RenderMarkdownH1Bg|1 col 1| RenderMarkdownH1Bg
---RenderMarkdownH2Bg|1 col 1| RenderMarkdownH2Bg
---RenderMarkdownH3Bg|1 col 1| RenderMarkdownH3Bg
---RenderMarkdownH4Bg|1 col 1| RenderMarkdownH4Bg
---RenderMarkdownH5Bg|1 col 1| RenderMarkdownH5Bg
---RenderMarkdownH6Bg|1 col 1| RenderMarkdownH6Bg
---RenderMarkdownHint|1 col 1| RenderMarkdownHint
---RenderMarkdownInfo|1 col 1| RenderMarkdownInfo
---RenderMarkdownLink|1 col 1| RenderMarkdownLink
---RenderMarkdownMath|1 col 1| RenderMarkdownMath
---RenderMarkdownSign|1 col 1| RenderMarkdownSign
---RenderMarkdownTodo|1 col 1| RenderMarkdownTodo
---RenderMarkdownWarn|1 col 1| RenderMarkdownWarn
---RenderMarkdownError|1 col 1| RenderMarkdownError
---RenderMarkdownQuote|1 col 1| RenderMarkdownQuote
---RenderMarkdownBullet|1 col 1| RenderMarkdownBullet
---RenderMarkdownChecked|1 col 1| RenderMarkdownChecked
---RenderMarkdownSuccess|1 col 1| RenderMarkdownSuccess
---RenderMarkdownTableRow|1 col 1| RenderMarkdownTableRow
---RenderMarkdownWikiLink|1 col 1| RenderMarkdownWikiLink
---RenderMarkdownTableFill|1 col 1| RenderMarkdownTableFill
---RenderMarkdownTableHead|1 col 1| RenderMarkdownTableHead
---RenderMarkdownUnchecked|1 col 1| RenderMarkdownUnchecked
---RenderMarkdownCodeInline|1 col 1| RenderMarkdownCodeInline
---RenderMarkdownHtmlComment|1 col 1| RenderMarkdownHtmlComment
---RenderMarkdownInlineHighlight|1 col 1| RenderMarkdownInlineHighlight
+local M = {}
+
+--- @param c Vaporlush.Palette
+--- @param opts Vaporlush.Config
+--- @return { [string]: VaporLush.Mapping }
+M.mappings = function(c, opts)
+    return {
+        RenderMarkdownH1 = { fg = c.comment, bg = c.primary0, italic = true },
+        RenderMarkdownH2 = { fg = c.comment, bg = c.secondary0, italic = true },
+        RenderMarkdownH3 = { fg = c.comment, bg = c.tertiary0, italic = true },
+        RenderMarkdownH4 = { fg = c.comment, bg = c.quartary0, italic = true },
+        RenderMarkdownH5 = { fg = c.comment, bg = c.primary1, italic = true },
+        RenderMarkdownH6 = { fg = c.comment, bg = c.secondary1, italic = true },
+        RenderMarkdownCode = { },
+        RenderMarkdownDash = {},
+        RenderMarkdownH1Bg = { fg = c.primary0, italic = true },
+        RenderMarkdownH2Bg = { fg = c.secondary0, italic = true },
+        RenderMarkdownH3Bg = { fg = c.tertiary0, italic = true },
+        RenderMarkdownH4Bg = { fg = c.quartary0, italic = true },
+        RenderMarkdownH5Bg = { fg = c.primary1, italic = true },
+        RenderMarkdownH6Bg = { fg = c.secondary1, italic = true },
+        RenderMarkdownHint = {},
+        RenderMarkdownInfo = {},
+        RenderMarkdownLink = {},
+        RenderMarkdownMath = {},
+        RenderMarkdownSign = {},
+        RenderMarkdownTodo = {},
+        RenderMarkdownWarn = {},
+        RenderMarkdownError = {},
+        RenderMarkdownQuote = {},
+        RenderMarkdownBullet = {},
+        RenderMarkdownChecked = {},
+        RenderMarkdownSuccess = {},
+        RenderMarkdownTableRow = {},
+        RenderMarkdownWikiLink = {},
+        RenderMarkdownTableFill = {},
+        RenderMarkdownTableHead = {},
+        RenderMarkdownUnchecked = {},
+        RenderMarkdownCodeInline = {},
+        RenderMarkdownHtmlComment = {},
+        RenderMarkdownInlineHighlight = {},
+    }
+end
