@@ -9,7 +9,7 @@ M.defaults = {
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-
+  transparent = false, -- Enable this to disable setting the background color
   cache = true, -- When set to true, the theme will be cached for better performance
 
   ---@type table<string, boolean|{enabled:boolean}>
@@ -29,7 +29,6 @@ M.options = nil
 ---@param options? Vaporlush.Config
 function M.setup(options)
   M.options = vim.tbl_deep_extend("force", {}, M.defaults, options or {})
-  vim.cmd("colorscheme " .. M.options.style)
 end
 
 ---@param opts? Vaporlush.Config

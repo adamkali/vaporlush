@@ -21,6 +21,7 @@ NinetySixPalette = {
     secondary1 = '#1848d9',
     secondary2 = '#416cf0',
     secondary3 = '#799afc',
+    none = 'NONE',
     gitsigns = {
         info = '#f7f37e',
         add = '#bedb65',

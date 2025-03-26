@@ -26,7 +26,7 @@ M.mappings = function(c, opts)
         ["@keyword"]                      = { fg = c.primary2 }, -- For keywords that don't fall in previous categories.
         ["@keyword.function"]             = { fg = c.quartary1, italic = true }, -- For keywords used to define a function.
         ["@label"]                        = { fg = c.primary2 }, -- For labels: `label:` in C and `:label:` in Lua.
-        ["@variable"]                     = { fg = c.tertiaryr2,  }, -- Any variable name that does not have another highlight.
+        ["@variable"]                     = { fg = c.tertiary2,  }, -- Any variable name that does not have another highlight.
         ["@variable.builtin"]             = { fg = c.gitsigns.danger, },                         -- Variable names that are defined by the languages, like `this` or `self`.
         ["@variable.member"]              = { fg = c.quartary1 },                      -- For fields.
         ["@variable.parameter"]           = { fg = c.secondary1 },                      -- For parameters of a function.

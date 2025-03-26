@@ -21,6 +21,7 @@ VaporPalette = {
     quartary1 = '#fc853f',
     quartary2 = '#f59b67',
     quartary3 = '#ffb68c',
+    none = 'NONE',
     gitsigns = {
         info = '#006655',
         add = '#00ccaa',

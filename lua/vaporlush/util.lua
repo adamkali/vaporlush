@@ -175,8 +175,13 @@ end
 ---@param opts Vaporlush.Config
 ---@return VaporLush.Mapping
 ---@see Vaporlush.Mapping.Set the Vaporlush.Mapping
-function M.get_hl_group_base(hl_group, c, opts) 
+function M.get_hl_group_base(hl_group, c, opts)
     return require('vaporlush.groups.base').mappings(c, opts)[hl_group]
+    --if hlgroup["1"] ~= nil then
+    --    vim.print(hl_group)
+    --    hlgroup = { fg=hlgroup.fg, bg = opts.transparent and c.none or c.bg }
+    --end
+    -- return hlgroup
 end
 
 ---comment

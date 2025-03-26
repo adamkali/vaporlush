@@ -1,4 +1,5 @@
 --- @class Vaporlush.Palette
+--- @field none string 
 --- @field bg string The color to use for the background.
 --- @field fg string The color to use for foreground text.
 --- @field bg_highlight string The color to use for the background highlighted.

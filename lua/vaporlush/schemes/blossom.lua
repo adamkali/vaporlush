@@ -21,6 +21,7 @@ BlossumPalette = {
     quartary1 = '#b0154b',
     quartary2 = '#ed427e',
     quartary3 = '#ff85af',
+    none = 'NONE',
     gitsigns = {
         info = '#30fcae',
         add = '#dfff50',
