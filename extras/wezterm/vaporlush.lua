@@ -1,3 +1,8 @@
+
+function he()
+    
+end
+
 VaporPalette = {
     bg = '#0e102d',
     fg = '#82a6fa',

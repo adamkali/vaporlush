@@ -4,6 +4,7 @@ local M = {}
 ---@type {light?: string, dark?: string}
 M.styles = {}
 
+
 ---@class Vaporlush.Global
 ---@field palette Vaporlush.Palette
 ---@field style string
@@ -22,9 +23,6 @@ function M.load(opts)
 
     for group, hl in pairs(groups) do
         hl = type(hl) == "string" and { link = hl } or hl
-        if hl["1"] ~= nil then
-            vim.print(group)
-        end
         vim.api.nvim_set_hl(0, group, hl)
     end
 

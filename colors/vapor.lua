@@ -1,4 +1,4 @@
-vim.g.colors_name = 'vaporlush.vapor'
+vim.g.colors_name = 'vapor'
 package.loaded['vaporlush'] = nil
 require("vaporlush").load({style = "vapor"})
 

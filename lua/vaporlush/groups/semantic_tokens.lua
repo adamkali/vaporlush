@@ -1,5 +1,6 @@
 local Util = require("vaporlush.util")
 
+
 local M = {}
 
 M.mappings = function(c, opts)
