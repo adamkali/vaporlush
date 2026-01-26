@@ -22,3 +22,8 @@
 --- @field quartary2 string The third color in the quartary palette.
 --- @field quartary3 string The fourth color in the quartary palette.
 --- @field gitsigns { info: string, add: string, change: string, danger: string } A table containing colors for Git signs (e.g. "info", "add", etc.)
+---
+return {
+	background_dark = "#150d1c",
+	background_light = "#bfdfef"
+}

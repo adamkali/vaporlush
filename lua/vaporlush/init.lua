@@ -12,9 +12,22 @@ M.styles = {}
 ---@param opts? Vaporlush.Config
 function M.load(opts)
     opts = require("vaporlush.config").extend(opts)
-    local bg = vim.o.background
 
     local colors = require("vaporlush.schemes." .. opts.style)
+    local base_colors = require("vaporlush.schemes")
+
+    -- Process background option
+    if opts.background == "dark" then
+        colors.bg = base_colors.background_dark
+        -- Lighten for dark bg: blend 10% white into the dark background
+        colors.bg_highlight = util.blend("#ffffff", 0.1, colors.bg)
+    elseif opts.background == "light" then
+        colors.bg = base_colors.background_light
+        -- Darken for light bg: blend 10% black into the light background
+        colors.bg_highlight = util.blend("#000000", 0.1, colors.bg)
+    end
+    -- "default" keeps scheme's original bg and bg_highlight
+
     local groups = require("vaporlush.groups").setup(colors, opts)
     local lualine = require('vaporlush.schemes.lualine-'.. opts.style)
 

@@ -6,6 +6,11 @@ M.version = "2.00.0" -- x-release-please-version
 M.defaults = {
   style = "vapor", -- The theme comes in three styles, `storm`,
   -- light_style = "day", -- The theme is used when the background is set to light
+  -- for example, 
+  -- default -> bg for all-> require("vaporlush.schemes.<scheme>").bg
+  -- dark -> bg for all ->  require("vaporlush.schemes").background_dark
+  -- light -> bg for all ->  require("vaporlush.schemes").background_light
+  background = "default",
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   dim_inactive = false, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
