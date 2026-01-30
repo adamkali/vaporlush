@@ -24,6 +24,6 @@
 --- @field gitsigns { info: string, add: string, change: string, danger: string } A table containing colors for Git signs (e.g. "info", "add", etc.)
 ---
 return {
-	background_dark = "#150d1c",
+	background_dark = "#12131e",
 	background_light = "#bfdfef"
 }
