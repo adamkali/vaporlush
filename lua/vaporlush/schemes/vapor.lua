@@ -1,5 +1,5 @@
 --- @type Vaporlush.Palette
-VaporPalette = {
+local VaporPalette = {
     bg = '#0e102d',
     fg = '#079ef0',
     bg_highlight = '#0a2846',

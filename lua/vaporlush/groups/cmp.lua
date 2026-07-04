@@ -7,7 +7,6 @@ M.url = "https://github.com/hrsh7th/nvim-cmp"
 ---@param c Vaporlush.Palette
 function M.mappings(c, opts)
     -- stylua: ignore
-    print('cmp')
     local ghost = Util.blend_fg(c.comment, 0.5)
     local ret = {
         CmpDocumentation         = { fg = c.fg, bg = c.bg_highlight },

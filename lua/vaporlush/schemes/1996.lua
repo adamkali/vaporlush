@@ -1,5 +1,5 @@
 --- @type Vaporlush.Palette
-NinetySixPalette = {
+local NinetySixPalette = {
     fg = '#a2f6da',
     bg = '#011c19',
     fg_highlight = '#3a3856',

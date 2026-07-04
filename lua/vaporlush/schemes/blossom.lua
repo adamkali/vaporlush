@@ -1,5 +1,5 @@
 --- @type Vaporlush.Palette
-BlossumPalette = {
+local BlossumPalette = {
     bg = '#1a0c29',
     fg = '#eec5fa',
     bg_highlight = '#5a3856',

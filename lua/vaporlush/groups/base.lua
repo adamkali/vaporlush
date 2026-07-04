@@ -53,6 +53,7 @@ M.mappings = function(c, opts)
         NormalFloat                 = { fg = c.fg, bg = opts.transparent and c.none or c.bg }, -- Normal text in floating windows.
         FloatBorder                 = { fg = c.quartary3, bg = opts.transparent and c.none or c.bg },
         FloatTitle                  = { fg = c.secondary3, bg = Util.blend_bg(c.primary3, 0.3) },
+        FloatFooter                 = { fg = c.comment, bg = opts.transparent and c.none or c.bg },   -- footer/keyhint line of floating windows
         Pmenu                       = { bg = opts.transparent and c.none or c.bg, fg = c.fg },        -- Popup menu: normal item.
         PmenuMatch                  = { bg = opts.transparent and c.none or c.bg, fg = c.quartary1 }, -- Popup menu: Matched text in normal item.
         PmenuSel                    = { bg = opts.transparent and c.none or c.bg, fg = c.tertiary2 }, -- Popup menu: selected item.
@@ -100,6 +101,22 @@ M.mappings = function(c, opts)
         Todo                        = { bg = c.gitsigns.change, fg = c.comment },                     -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
         Type                        = { fg = c.quartary0 },                                           -- (preferred) int, long, char, etc.
         Underlined                  = { underline = true },                                           -- (preferred) text that stands out, HTML links
+        -- Standard syntax groups referenced by treesitter/cmp/kinds via
+        -- Util.get_hl_group_base. Grouped by their vim-default family so nothing
+        -- resolves to nil.
+        Boolean                     = { fg = c.quartary1 },                                            --   a boolean constant: TRUE, false  (Constant family)
+        Number                      = { fg = c.tertiary3 },                                            --   a number constant: 234, 0xff
+        Float                       = { fg = c.tertiary3 },                                            --   a floating point constant: 2.3e10
+        SpecialChar                 = { fg = c.quartary0 },                                            --   special character in a constant  (Special family)
+        Conditional                 = { fg = c.quartary1 },                                            --   if, then, else, endif, switch, etc.  (Statement family)
+        Repeat                      = { fg = c.quartary1 },                                            --   for, do, while, etc.
+        Exception                   = { fg = c.quartary1 },                                            --   try, catch, throw
+        Label                       = { fg = c.primary2 },                                             --   case, default, etc.
+        Include                     = { fg = c.quartary3 },                                            --   preprocessor #include  (PreProc family)
+        Define                      = { fg = c.quartary3 },                                            --   preprocessor #define
+        Macro                       = { fg = c.quartary3 },                                            --   same as Define
+        Typedef                     = { fg = c.quartary0 },                                            --   a typedef  (Type family)
+        StorageClass                = { fg = c.quartary0 },                                            --   static, register, volatile, etc.
         debugBreakpoint             = { bg = Util.blend_bg(c.primary0, 0.1), fg = c.primary2 },       -- used for breakpoint colors in terminal-debug
         debugPC                     = { bg = c.bg_highlight },                                        -- used for highlighting the current line in terminal-debug
         dosIniLabel                 = { bg = c.bg_highlight },
@@ -124,6 +141,7 @@ M.mappings = function(c, opts)
         DiagnosticWarn              = { fg = c.gitsigns.change, bold = true, italic = true },                 -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticInfo              = { fg = c.gitsigns.info, bold = true, italic = true },                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticHint              = { fg = c.gitsigns.add, bold = true, italic = true },                    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticOk                = { fg = c.gitsigns.add, bold = true, italic = true },                    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticUnnecessary       = { fg = c.comment },                                                     -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticVirtualTextError  = { bg = Util.blend_bg(c.gitsigns.danger, 0.1), fg = c.gitsigns.danger }, -- Used for "Error" diagnostic virtual text
         DiagnosticVirtualTextWarn   = { bg = Util.blend_bg(c.gitsigns.change, 0.1), fg = c.gitsigns.change }, -- Used for "Warning" diagnostic virtual text

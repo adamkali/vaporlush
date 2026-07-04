@@ -49,36 +49,45 @@ M.mappings = function(c, opts)
         ["@function.method"]              = { fg = c.secondary0, italic = true },
         ["@function.method.call"]         = { fg = c.secondary2, italic = true },
         ["@keyword.conditional"]          = Util.get_hl_group_base("Conditional",c,opts),
-        ["@keyword.coroutine"]            = Util.get_hl_group_base("@keyword",c,opts),
+        ["@keyword.coroutine"]            = { link = "@keyword" },
         ["@keyword.debug"]                = Util.get_hl_group_base("Debug",c,opts),
         ["@keyword.directive"]            = Util.get_hl_group_base("PreProc",c,opts),
         ["@keyword.directive.define"]     = Util.get_hl_group_base("Define",c,opts),
         ["@keyword.exception"]            = Util.get_hl_group_base("Exception",c,opts),
         ["@keyword.import"]               = Util.get_hl_group_base("Include",c,opts),
-        ["@keyword.operator"]             = Util.get_hl_group_base("@operator",c,opts),
+        ["@keyword.operator"]             = { link = "@operator" },
         ["@keyword.repeat"]               = Util.get_hl_group_base("Repeat",c,opts),
-        ["@keyword.return"]               = Util.get_hl_group_base("@keyword",c,opts),
+        ["@keyword.return"]               = { link = "@keyword" },
         ["@keyword.storage"]              = Util.get_hl_group_base("StorageClass",c,opts),
-        ["@markup"]                       = Util.get_hl_group_base("@none",c,opts),
+        ["@markup"]                       = { fg = c.fg }, -- paragraph / generic markup text
         ["@markup.environment"]           = Util.get_hl_group_base("Macro",c,opts),
         ["@markup.environment.name"]      = Util.get_hl_group_base("Type",c,opts),
         ["@markup.heading"]               = Util.get_hl_group_base("Title",c,opts),
+        -- Per-level heading TEXT. Kept in sync with the icon `fg` values in
+        -- groups/render-markdown.lua (heads[]) so text and bar share a hue.
+        ["@markup.heading.1.markdown"]    = { fg = c.fg,           bold = true },
+        ["@markup.heading.2.markdown"]    = { fg = c.tertiary3,    bold = true },
+        ["@markup.heading.3.markdown"]    = { fg = c.secondary3,   bold = true },
+        ["@markup.heading.4.markdown"]    = { fg = c.quartary3,    bold = true },
+        ["@markup.heading.5.markdown"]    = { fg = c.gitsigns.add, bold = true },
+        ["@markup.heading.6.markdown"]    = { fg = c.tertiary3,    bold = true },
+        ["@markup.quote"]                 = { fg = c.comment, italic = true },
         ["@markup.link.label"]            = Util.get_hl_group_base("SpecialChar",c,opts),
         ["@markup.link.label.symbol"]     = Util.get_hl_group_base("Identifier",c,opts),
-        ["@markup.math"]                  = Util.get_hl_group_base("Special",c,opts),
-        ["@markup.raw"]                   = Util.get_hl_group_base("String",c,opts),
+        ["@markup.math"]                  = { fg = c.tertiary3 },
+        ["@markup.raw"]                   = { fg = c.quartary2 }, -- inline `code`
         ["@markup.link.url"]              = Util.get_hl_group_base("Underlined",c,opts),
         ["@module"]                       = Util.get_hl_group_base("Include",c,opts),
-        ["@namespace.builtin"]            = Util.get_hl_group_base("@variable.builtin",c,opts),
+        ["@namespace.builtin"]            = { link = "@variable.builtin" },
         ["@number"]                       = Util.get_hl_group_base("Number",c,opts),
         ["@number.float"]                 = Util.get_hl_group_base("Float",c,opts),
         ["@string"]                       = Util.get_hl_group_base("String",c,opts),
         ["@tag"]                          = Util.get_hl_group_base("Label",c,opts),
-        ["@tag.attribute"]                = Util.get_hl_group_base("@property",c,opts),
+        ["@tag.attribute"]                = { link = "@property" },
         ["@tag.delimiter"]                = Util.get_hl_group_base("Delimiter",c,opts),
         ["@type"]                         = Util.get_hl_group_base("Type",c,opts),
         ["@type.definition"]              = Util.get_hl_group_base("Typedef",c,opts),
-        ["@type.qualifier"]               = Util.get_hl_group_base("@keyword",c,opts),
+        ["@type.qualifier"]               = { link = "@keyword" },
         ["@punctuation.bracket"]          = { fg = c.secondary1 }, -- For brackets and parens.
         ["@punctuation.delimiter"]        = { fg = c.secondary2 }, -- For delimiters ie: `.`
         ["@punctuation.special"]          = { fg = c.secondary2 }, -- For special symbols (e.g. `{}` in string interpolation)
@@ -90,11 +99,11 @@ M.mappings = function(c, opts)
         ["@tag.tsx"]                      = { fg = c.quartary2 },
         ["@tag.javascript"]               = { fg = c.quartary2 },
         ["@type.builtin"]                 = { fg = Util.blend_bg(c.primary1, 0.8) },
-        ["@markup.list"]                  = { fg = c.primary1 }, -- For special punctutation that does not fall in the categories before.
-        ["@markup.list.checked"]          = { fg = c.quartary1 }, -- For brackets and parens.
+        ["@markup.list"]                  = { fg = c.tertiary3, bold = true }, -- list bullet markers
+        ["@markup.list.checked"]          = { fg = c.gitsigns.add }, -- checked box
         ["@markup.list.markdown"]         = { fg = c.tertiary2, bold = true },
-        ["@markup.list.unchecked"]        = { fg = c.primary2 }, -- For brackets and parens.
-        ["@markup.raw.markdown_inline"]   = { fg = c.primary3 },
+        ["@markup.list.unchecked"]        = { fg = c.comment }, -- unchecked box
+        ["@markup.raw.markdown_inline"]   = { fg = c.quartary2 }, -- inline `code`
     }
 
     return map

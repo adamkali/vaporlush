@@ -59,13 +59,13 @@ end
 --- @field strikethrough boolean?
 --- @field italic boolean?
 --- @field reverse boolean?
-DefaultMapping = {}
+local DefaultMapping = {}
 
 --- @class Vaporlush.HighlightsFn
 --- @param name string highlight group name e.g. "ErrorMsg"
 --- @param val vim.api.keyset.highlight a table constructed in the following { fg = Vaporlush.Palette[field], bg = Vaporlush.Palette[field], .. }
 --- |:help nvim_set_hl|
-function nvim_set_hl(name, val)
+local function nvim_set_hl(name, val)
     vim.api.nvim_set_hl(0, name, val)
 end
 
@@ -77,6 +77,7 @@ function M.setup(colors, opts)
         kinds = true,
         semantic_tokens = true,
         treesitter = true,
+        uwupdate = true, -- local plugin (not manager-detectable); always define UwUpdate*
     }
 
     if opts.plugins.all then

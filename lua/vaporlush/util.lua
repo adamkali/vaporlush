@@ -163,25 +163,35 @@ function M.cache.write(key, data)
   pcall(M.write, M.cache.file(key), vim.json.encode(data))
 end
 
+-- Remove every cached scheme. Globs the actual cache files rather than a fixed
+-- style list, so it covers all present and future schemes (vapor/1996/blossom/...).
 function M.cache.clear()
-  for _, style in ipairs({ "storm", "day", "night", "moon" }) do
-    uv.fs_unlink(M.cache.file(style))
+  local pattern = vim.fn.stdpath("cache") .. "/vaporlush-*.json"
+  for _, file in ipairs(vim.fn.glob(pattern, true, true)) do
+    uv.fs_unlink(file)
   end
 end
 
----comment
+-- Memoize the resolved base mapping table. base.mappings() rebuilds ~130 entries
+-- on every call, and it's looked up ~55 times per load (treesitter/cmp/kinds), so
+-- computing it fresh each time is O(n^2). We cache the whole table keyed by the
+-- (colors, opts) identities, which are stable within a single load and change when
+-- the scheme/options change.
+local base_cache = { c = nil, opts = nil, map = nil }
+
+---Look up a highlight group from the base palette mappings.
 ---@param hl_group string
 ---@param c Vaporlush.Palette
 ---@param opts Vaporlush.Config
 ---@return VaporLush.Mapping
 ---@see Vaporlush.Mapping.Set the Vaporlush.Mapping
 function M.get_hl_group_base(hl_group, c, opts)
-    return require('vaporlush.groups.base').mappings(c, opts)[hl_group]
-    --if hlgroup["1"] ~= nil then
-    --    vim.print(hl_group)
-    --    hlgroup = { fg=hlgroup.fg, bg = opts.transparent and c.none or c.bg }
-    --end
-    -- return hlgroup
+    if base_cache.c ~= c or base_cache.opts ~= opts then
+        base_cache.c = c
+        base_cache.opts = opts
+        base_cache.map = require('vaporlush.groups.base').mappings(c, opts)
+    end
+    return base_cache.map[hl_group]
 end
 
 ---comment
